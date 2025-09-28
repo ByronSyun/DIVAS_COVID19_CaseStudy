@@ -1,0 +1,7 @@
+"Data_Block","Features","Samples","T1_Samples","T2_Samples"
+"CD4_T_combined",8634,114,57,57
+"CD8_T_combined",8634,114,57,57
+"CD14_Monocyte",8634,114,57,57
+"NK",8634,114,57,57
+"proteomics",481,114,57,57
+"metabolomics",763,114,57,57
