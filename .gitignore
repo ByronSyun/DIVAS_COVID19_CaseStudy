@@ -73,8 +73,10 @@ preprocessing/process_sc/sc_gex_processing/processed_gex_data/
 scRNA_celltyist_analysis/celltype_annotation/annotated_data_majority_voting/
 preprocessing/processed_omics_120/
 preprocessing/processed_omics_all/
-multi_omics_integration/DIVAS_Results/
-scRNA_celltyist_analysis/DIVAS_run/divas_results/
+# Include DIVAS results but exclude large .rds files
+!multi_omics_integration/DIVAS_Results/
+!scRNA_celltyist_analysis/DIVAS_run/divas_results/
+*.rds
 
 # Note: DIVAS_InputbyTime directory has been removed (workflow simplified)
 
