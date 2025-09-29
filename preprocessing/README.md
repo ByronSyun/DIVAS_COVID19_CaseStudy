@@ -8,7 +8,7 @@ The preprocessing pipeline processes raw omics data and prepares standardized da
 - **Single-cell RNA-seq (scRNA-seq)**: Gene expression at single-cell resolution
 - **Single-cell Proteomics (CITE-seq)**: Protein expression at single-cell resolution  
 - **Bulk Proteomics**: Plasma protein measurements
-- **Metabolomics**: Plasma metabolite measurements
+- **Bulk Metabolomics**: Plasma metabolite measurements
 
 ## Processing Workflow
 
