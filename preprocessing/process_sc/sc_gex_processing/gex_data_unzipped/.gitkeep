@@ -1,0 +1,14 @@
+# Raw GEX data extraction directory
+# 
+# This directory is used for extracting downloaded scRNA-seq data files.
+# The data acquisition scripts will automatically extract compressed files here.
+# 
+# To populate this directory:
+# 1. Run data_acquisition/download_arrayexpress_data.sh
+# 2. Run data_acquisition/organize_arrayexpress_files.sh
+# 
+# Expected content:
+# - Extracted .h5, .tsv.gz, and .mtx.gz files from ArrayExpress
+# - Individual sample directories with raw count matrices
+# 
+# Note: This directory will be populated automatically during data acquisition

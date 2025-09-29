@@ -1,0 +1,13 @@
+# Processed scRNA-seq GEX data directory
+# 
+# This directory should contain processed single-cell gene expression data.
+# Due to file size constraints, these files are not included in the git repository.
+# 
+# To generate the data:
+# Run the GEX processing pipeline: python3 process_gex_data.py
+# 
+# Expected files:
+# - Individual sample .h5ad files after quality control and normalization
+# - Aggregated expression matrices
+# 
+# Note: This data is required for downstream CellTypist annotation

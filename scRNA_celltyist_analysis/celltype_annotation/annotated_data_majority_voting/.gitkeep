@@ -1,0 +1,14 @@
+# Large .h5ad files directory
+# 
+# This directory should contain the CellTypist annotated .h5ad files.
+# Due to file size constraints, these files are not included in the git repository.
+# 
+# To obtain the data:
+# 1. Download from Zenodo: [URL to be provided]
+# 2. Or generate by running: python3 run_celltypist_pbmc.py
+# 
+# Expected files:
+# - INCOVxxx-BL_annotated.h5ad (T1 timepoint samples)
+# - INCOVxxx-AC_annotated.h5ad (T2 timepoint samples)
+# 
+# Total expected files: ~120 .h5ad files (~10-50MB each)

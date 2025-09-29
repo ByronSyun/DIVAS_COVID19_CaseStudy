@@ -1,0 +1,13 @@
+# Processed all-patient omics data directory
+# 
+# This directory should contain the intermediate processed omics datasets
+# for all patients (before filtering to 120 dual-timepoint patients).
+# Due to file size constraints, these files are not included in the git repository.
+# 
+# Source data files (to be placed here):
+# - improved_metabolomics_data.csv
+# - improved_proteomics_data.csv  
+# - datablock_pro.tsv (single-cell protein data)
+# 
+# These are intermediate files used by the filtering scripts to generate
+# the final 120-patient datasets in processed_omics_120/

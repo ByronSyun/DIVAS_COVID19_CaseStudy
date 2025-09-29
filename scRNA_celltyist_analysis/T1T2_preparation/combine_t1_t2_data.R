@@ -45,15 +45,17 @@ celltype_map <- list(
   NK = "NK"
 )
 
-cat("Finding common genes...\n")
+cat("Finding common genes with quality filtering...\n")
 
 # Only compute common genes once for all scRNA blocks
 if (!exists("global_common_genes")) {
   py_script_genes <- sprintf('
 import scanpy as sc
 import pandas as pd
+import numpy as np
 import os
 import sys
+import math
 
 # Load sample mapping
 mapping_file = "%s"
@@ -64,7 +66,11 @@ sample_to_incov = dict(zip(id_mapping["sample_id"], id_mapping["original_filenam
 all_samples = %s
 annotated_dir = "%s"
 
+# First pass: find intersection of all genes
 common_genes = None
+sample_gene_data = {}
+
+print("Step 1: Finding gene intersection across all samples...")
 
 for sample_id in all_samples:
     if sample_id not in sample_to_incov:
@@ -78,24 +84,78 @@ for sample_id in all_samples:
         
     try:
         adata = sc.read_h5ad(h5ad_file, backed="r")
+        current_genes = set(adata.var_names)
+        
         if common_genes is None:
-            common_genes = set(adata.var_names)
+            common_genes = current_genes
         else:
-            current_genes = set(adata.var_names)
-            intersection = common_genes.intersection(current_genes)
-            common_genes = intersection
+            common_genes = common_genes.intersection(current_genes)
+            
+        # Store for quality filtering step
+        sample_gene_data[sample_id] = {
+            "h5ad_file": h5ad_file,
+            "genes": current_genes
+        }
+        
     except Exception as e:
         print(f"Error reading {h5ad_file}: {e}", file=sys.stderr)
         continue
 
-if common_genes is None:
-    common_genes_list = []
-else:
-    common_genes_list = sorted(list(common_genes))
+if common_genes is None or len(common_genes) == 0:
+    print("No common genes found across samples")
+    sys.exit(1)
+
+common_genes_list = sorted(list(common_genes))
+print(f"Found {len(common_genes_list)} genes common across all samples")
+
+# Step 2: Apply 10%% expression threshold filtering (matching original analysis)
+print("Step 2: Applying 10%% expression threshold filtering...")
+
+min_expression_percentage = 0.10  # 10%% threshold like original analysis
+min_samples_for_expression = math.ceil(len(all_samples) * min_expression_percentage)
+
+print(f"Gene must be expressed in at least {min_samples_for_expression} samples to be retained")
+
+# Create aggregated expression matrix for quality filtering
+gene_expression_counts = {}
+
+for sample_id in all_samples:
+    if sample_id not in sample_gene_data:
+        continue
+        
+    h5ad_file = sample_gene_data[sample_id]["h5ad_file"]
+    
+    try:
+        adata = sc.read_h5ad(h5ad_file)
+        adata_common = adata[:, common_genes_list].copy()
+        
+        # Calculate mean expression per gene for this sample
+        if adata_common.X.shape[0] > 0:  # Check if there are cells
+            mean_expr = np.array(adata_common.X.mean(axis=0)).flatten()
+            
+            # Count genes with non-zero expression
+            for i, gene in enumerate(common_genes_list):
+                if gene not in gene_expression_counts:
+                    gene_expression_counts[gene] = 0
+                if mean_expr[i] > 0:
+                    gene_expression_counts[gene] += 1
+                    
+    except Exception as e:
+        print(f"Error processing {h5ad_file} for quality filtering: {e}", file=sys.stderr)
+        continue
+
+# Filter genes based on expression threshold
+quality_filtered_genes = []
+for gene in common_genes_list:
+    if gene in gene_expression_counts and gene_expression_counts[gene] >= min_samples_for_expression:
+        quality_filtered_genes.append(gene)
+
+print(f"After 10%% expression filtering: {len(quality_filtered_genes)} genes retained")
+print(f"Removed {len(common_genes_list) - len(quality_filtered_genes)} genes ({((len(common_genes_list) - len(quality_filtered_genes))/len(common_genes_list)*100):.1f}%%)")
 
 # Save to file
 with open("common_genes.txt", "w") as f:
-    for gene in common_genes_list:
+    for gene in quality_filtered_genes:
         f.write(gene + "\\n")
 ', 
     mapping_file,
@@ -105,15 +165,15 @@ with open("common_genes.txt", "w") as f:
   writeLines(py_script_genes, "find_common_genes.py")
   system("python3 find_common_genes.py")
   
-  # Read common genes
+  # Read quality-filtered common genes
   if (file.exists("common_genes.txt")) {
     global_common_genes <- readLines("common_genes.txt")
     file.remove(c("find_common_genes.py", "common_genes.txt"))
   } else {
-    stop("Failed to find common genes")
+    stop("Failed to find quality-filtered common genes")
   }
   
-  cat("Found", length(global_common_genes), "common genes\n")
+  cat("Found", length(global_common_genes), "quality-filtered common genes (10% expression threshold)\n")
 }
 
 # --- 5. Function to Extract and Combine Data ---

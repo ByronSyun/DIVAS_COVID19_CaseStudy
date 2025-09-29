@@ -1,0 +1,20 @@
+# Processed 120-patient omics data directory
+# 
+# This directory should contain the final filtered omics datasets for 120 patients
+# who have both T1 and T2 timepoint data.
+# Due to file size constraints, these files are not included in the git repository.
+# 
+# To generate the data:
+# Run the filtering scripts in the respective preprocessing directories:
+# - process_bulk/filter_metabolomics_for_120patients.py
+# - process_bulk/filter_proteomics_for_120patients.py  
+# - process_sc/sc_pro_processing/filter_sc_pro_for_120patients.py
+# - process_sc/sc_gex_processing/filter_sc_gex_for_120patients.py
+# 
+# Expected files:
+# - metabolomics_120patients.csv
+# - proteomics_120patients.csv
+# - sc_pro_120patients.csv (CLR normalized)
+# - sc_gex_120patients_aligned.csv
+# 
+# These files are used for 4-omics DIVAS integration analysis.
