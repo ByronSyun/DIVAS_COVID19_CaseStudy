@@ -1,14 +1,17 @@
 # Data Preprocessing Pipeline
 
-This directory contains the complete data preprocessing pipeline for COVID-19 multi-omics data, preparing datasets for DIVAS analysis.
+This directory contains the complete data preprocessing pipeline for COVID-19 multi-omics data, preparing datasets for DIVAS analysis. The pipeline focuses on **120 patients with dual timepoints (T1 + T2)** to enable longitudinal multi-omics integration.
 
 ## Overview
 
-The preprocessing pipeline processes raw omics data and prepares standardized datasets for downstream DIVAS integration analysis. It handles four major data types:
+The preprocessing pipeline processes raw omics data and prepares standardized datasets for downstream DIVAS integration analysis. It handles four major data types across **120 patients with dual timepoints (T1 baseline + T2 follow-up)**:
+
 - **Single-cell RNA-seq (scRNA-seq)**: Gene expression at single-cell resolution
 - **Single-cell Proteomics (CITE-seq)**: Protein expression at single-cell resolution  
 - **Bulk Proteomics**: Plasma protein measurements
-- **Metabolomics**: Plasma metabolite measurements
+- **Bulk Metabolomics**: Plasma metabolite measurements
+
+The dual-timepoint design enables longitudinal analysis of COVID-19 disease progression and recovery patterns across multiple biological scales.
 
 ## Processing Workflow
 
