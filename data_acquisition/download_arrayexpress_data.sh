@@ -4,9 +4,9 @@
 # This script reads a JSON file listing all files to download.
 
 # Ensure the script is run from the workspace root or adjust paths accordingly
-SCRIPT_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )" # Should be DIVAS-code/DATA_Covid/downloads
-WORKSPACE_ROOT_GUESS="$( dirname "$( dirname "${SCRIPT_DIR}" )" )" # Should be DIVAS-code
-ARRAYEXPRESS_DATA_DIR="${WORKSPACE_ROOT_GUESS}/DATA_Covid/downloads/arrayexpress_data"
+SCRIPT_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )" # Should be DIVAS_COVID19_CaseStudy/data_acquisition
+WORKSPACE_ROOT_GUESS="$( dirname "${SCRIPT_DIR}" )" # Should be DIVAS_COVID19_CaseStudy
+ARRAYEXPRESS_DATA_DIR="${SCRIPT_DIR}/arrayexpress_data"
 JSON_FILE="${ARRAYEXPRESS_DATA_DIR}/processed-data_filelist.json"
 BASE_FTP_URL="ftp://ftp.ebi.ac.uk/biostudies/fire/E-MTAB-/357/E-MTAB-9357/Files"
 LOG_FILE="${ARRAYEXPRESS_DATA_DIR}/download_arrayexpress.log"

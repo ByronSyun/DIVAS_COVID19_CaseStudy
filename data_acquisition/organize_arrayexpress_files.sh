@@ -3,9 +3,9 @@
 # Script to organize downloaded ArrayExpress files from E-MTAB-9357 into subdirectories based on omics type.
 
 # Ensure the script is run from the workspace root or adjust paths accordingly
-SCRIPT_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )" # Should be DIVAS-code/DATA_Covid/downloads
-WORKSPACE_ROOT_GUESS="$( dirname "$( dirname "${SCRIPT_DIR}" )" )" # Should be DIVAS-code
-ARRAYEXPRESS_BASE_DIR="${WORKSPACE_ROOT_GUESS}/DATA_Covid/downloads/arrayexpress_data"
+SCRIPT_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )" # Should be DIVAS_COVID19_CaseStudy/data_acquisition
+WORKSPACE_ROOT_GUESS="$( dirname "${SCRIPT_DIR}" )" # Should be DIVAS_COVID19_CaseStudy
+ARRAYEXPRESS_BASE_DIR="${SCRIPT_DIR}/arrayexpress_data"
 
 # Define target directories
 GEX_DIR="${ARRAYEXPRESS_BASE_DIR}/gex_data"

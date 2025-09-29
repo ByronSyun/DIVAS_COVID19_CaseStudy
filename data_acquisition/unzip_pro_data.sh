@@ -3,9 +3,10 @@
 # Script to unzip all .txt.gz files in the pro_data directory
 
 # Set paths
-BASE_DIR="/Users/byronsun/Desktop/DIVAS-code/DATA_Covid/downloads"
-SOURCE_DIR="${BASE_DIR}/arrayexpress_data/pro_data"
-TARGET_DIR="${BASE_DIR}/arrayexpress_data/pro_data_unzipped"
+SCRIPT_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )"
+BASE_DIR="${SCRIPT_DIR}/arrayexpress_data"
+SOURCE_DIR="${BASE_DIR}/pro_data"
+TARGET_DIR="${BASE_DIR}/pro_data_unzipped"
 
 # Make sure target directory exists
 mkdir -p "${TARGET_DIR}"
