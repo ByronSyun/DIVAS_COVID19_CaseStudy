@@ -6,79 +6,30 @@ This directory contains the scripts necessary to download and organize the raw s
 
 ## Step-by-Step Instructions
 
-Please execute the following scripts in order from the `DIVAS_COVID19_CaseStudy/data_acquisition` directory.
+Execute the following three scripts in order from the `data_acquisition` directory:
 
-### Step 1: Download Raw Data
-
-This script downloads all raw single-cell data files from the ArrayExpress FTP server.
-
-**How to Run:**
 ```bash
+# 1. Download raw single-cell data from ArrayExpress (E-MTAB-9357)
 bash download_arrayexpress_data.sh
-```
 
-**What it Does:**
-- Reads a file list from `arrayexpress_data/processed-data_filelist.json` (Note: You may need to create this file or adjust the script if it's not present).
-- Uses `wget` to download 1340 files corresponding to five data types:
-  - Single-cell Gene Expression (GEX)
-  - CITE-seq Protein Expression (PRO)
-  - CD8+ T-cell Receptor (TCR)
-  - CD4+ T-cell Receptor (TCR)
-  - B-cell Receptor (BCR)
-- Creates a log file `arrayexpress_data/download_arrayexpress.log`.
+# 2. Organize files by data type
+bash organize_arrayexpress_files.sh  
 
-**Output:**
-- A directory named `arrayexpress_data/` containing all 1340 raw data files (`.txt.gz`).
-
----
-
-### Step 2: Unzip CITE-seq Protein Data
-
-This script specifically unzips the CITE-seq (protein expression) data files, which are needed for downstream analysis.
-
-**How to Run:**
-```bash
+# 3. Unzip protein expression data
 bash unzip_pro_data.sh
 ```
 
-**What it Does:**
-- Finds all `.txt.gz` files in the `arrayexpress_data/pro_data/` directory (which will be created in the next step, so you may need to run Step 3 first or adjust paths).
-- Unzips each file using `gunzip`.
+**Input:** ArrayExpress accession E-MTAB-9357 containing 1340 single-cell data files from Su et al. (2020) COVID-19 study.
 
-**Output:**
-- A new directory `arrayexpress_data/pro_data_unzipped/` containing the uncompressed `.txt` files for protein data.
-
----
-
-### Step 3: Organize Downloaded Files
-
-After downloading, this script organizes the 1340 raw files into separate subdirectories based on their data type.
-
-**How to Run:**
-```bash
-bash organize_arrayexpress_files.sh
+**Output:** Organized directory structure:
+```
+arrayexpress_data/
+├── gex_data/              # Single-cell gene expression
+├── pro_data/              # CITE-seq protein expression  
+├── pro_data_unzipped/     # Uncompressed protein data
+├── cd8_tcr_data/          # CD8+ T-cell receptors
+├── cd4_tcr_data/          # CD4+ T-cell receptors
+└── bcr_data/              # B-cell receptors
 ```
 
-**What it Does:**
-- Scans all `.txt.gz` files in the `arrayexpress_data/` directory.
-- Moves each file into one of the following subdirectories based on its filename:
-  - `gex_data/`
-  - `pro_data/`
-  - `cd8_tcr_data/`
-  - `cd4_tcr_data/`
-  - `bcr_data/`
-- Creates a log file `arrayexpress_data/organize_files.log`.
-
-**Output:**
-- The `arrayexpress_data/` directory will now be cleanly organized with all files sorted into their respective data-type subfolders.
-- **Final Structure:**
-  ```
-  arrayexpress_data/
-  ├── gex_data/
-  ├── pro_data/
-  ├── cd8_tcr_data/
-  ├── cd4_tcr_data/
-  └── bcr_data/
-  ```
-
-After running these three scripts, all raw sequencing data will be downloaded and correctly structured for the next stages of the analysis.
+The scripts will automatically create log files to track download and organization progress.
