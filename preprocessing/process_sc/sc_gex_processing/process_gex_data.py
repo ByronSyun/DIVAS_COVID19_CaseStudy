@@ -18,7 +18,9 @@ import re
 import sys
 
 # Path configuration
-WORKSPACE_ROOT = "/Users/byronsun/Desktop/DIVAS-code"
+script_dir = os.path.dirname(os.path.abspath(__file__))
+repo_root = os.path.dirname(os.path.dirname(os.path.dirname(os.path.dirname(script_dir))))  # DIVAS-code directory
+WORKSPACE_ROOT = repo_root
 BASE_DIR = os.path.join(WORKSPACE_ROOT, "DIVAS_COVID19_CaseStudy/preprocessing/process_sc/sc_gex_processing")
 OUTPUT_DIR = os.path.join(BASE_DIR, "processed_gex_data")
 SAMPLE_IDS_FILE = os.path.join(WORKSPACE_ROOT, "DIVAS_COVID19_CaseStudy/preprocessing/process_bulk/sample_ids.tsv")

@@ -10,82 +10,42 @@ The preprocessing pipeline processes raw omics data and prepares standardized da
 - **Bulk Proteomics**: Plasma protein measurements
 - **Metabolomics**: Plasma metabolite measurements
 
-## Directory Structure
-
-```
-preprocessing/
-├── process_bulk/                    # Bulk omics data processing
-│   ├── filter_metabolomics_for_120patients.py
-│   ├── filter_proteomics_for_120patients.py
-│   ├── improve_metabolomics_quality.R
-│   ├── improve_proteomics_quality.R
-│   ├── sample_ids.tsv              # Sample ID mapping (CRITICAL)
-│   └── README.md
-├── process_sc/                     # Single-cell data processing
-│   ├── sc_gex_processing/          # scRNA-seq processing
-│   │   ├── batch_process_gex.py
-│   │   ├── filter_sc_gex_for_120patients.py
-│   │   ├── gex_sample_metadata.tsv  # Sample metadata (CRITICAL)
-│   │   └── README.md
-│   ├── sc_pro_processing/          # sc-Proteomics processing
-│   │   ├── filter_sc_pro_for_120patients.py
-│   │   ├── normalize_sc_pro_clr.py
-│   │   └── README.md
-│   └── README.md
-├── data_alignment/                 # Cross-omics sample alignment
-│   ├── align_gex_final.py
-│   ├── verify_final_alignment.py
-│   └── README.md
-├── sample_distribution/            # Sample metadata and selection
-│   ├── core_samples_10X_metabolomics_proteomics_20250704_173841.csv
-│   └── sample_ids.tsv
-├── processed_omics_all/            # Intermediate results (all patients)
-└── processed_omics_120/           # Final results (120 dual-timepoint patients)
-    ├── metabolomics_120patients.csv
-    ├── proteomics_120patients.csv
-    ├── sc_gex_120patients_aligned.csv
-    └── sc_pro_120patients.csv
-```
-
 ## Processing Workflow
 
-### Phase 1: Initial Data Processing (All Patients)
+### Single-Cell Data Processing
 ```bash
-# Process bulk omics data
-cd process_bulk
-python process_metabolomics.py
-python process_proteomics.py
-R improve_metabolomics_quality.R
-R improve_proteomics_quality.R
+# 1. Process scRNA-seq data
+cd process_sc/sc_gex_processing
+python batch_process_gex.py                    # Process raw 10X data
+python filter_sc_gex_for_120patients.py        # Filter for dual-timepoint patients
 
-# Process single-cell data
-cd ../process_sc/sc_gex_processing
-python batch_process_gex.py
-
+# 2. Process single-cell proteomics (CITE-seq)
 cd ../sc_pro_processing
-python create_pro_datablock.py
+python create_pro_datablock.py                 # Create protein datablock
+python filter_sc_pro_for_120patients.py        # Filter for dual-timepoint patients
+python normalize_sc_pro_clr.py                 # Apply CLR normalization
 ```
 
-### Phase 2: 120-Patient Filtering (Dual Timepoint)
+### Bulk Omics Data Processing
 ```bash
-# Filter for patients with both T1 and T2 data
+# 1. Process bulk proteomics and metabolomics
 cd process_bulk
-python filter_metabolomics_for_120patients.py
-python filter_proteomics_for_120patients.py
+python process_metabolomics.py                 # Initial metabolomics processing
+python process_proteomics.py                   # Initial proteomics processing
+Rscript improve_metabolomics_quality.R         # Quality improvement
+Rscript improve_proteomics_quality.R           # Quality improvement
 
-cd ../process_sc/sc_gex_processing  
-python filter_sc_gex_for_120patients.py
-
-cd ../sc_pro_processing
-python filter_sc_pro_for_120patients.py
-python normalize_sc_pro_clr.py
+# 2. Filter for dual-timepoint patients
+python filter_metabolomics_for_120patients.py  # Extract 120 patients
+python filter_proteomics_for_120patients.py    # Extract 120 patients
 ```
 
-### Phase 3: Data Alignment
+### Data Alignment and Finalization
 ```bash
+# Ensure sample order consistency across all omics
 cd data_alignment
-python align_gex_final.py
-python verify_final_alignment.py
+python align_gex_final.py                      # Align scRNA-seq sample order
+python verify_final_alignment.py               # Verify consistency
 ```
 
 ## Key Features
@@ -139,29 +99,6 @@ python verify_final_alignment.py
 - **`*_120patients.csv`**: Ready for DIVAS analysis
 - **Data aligned**: Samples in identical order across all files
 
-## Troubleshooting
-
-### Common Issues
-
-1. **Sample ID Mismatches**:
-   ```bash
-   # Check sample ID mapping
-   head -5 sample_distribution/sample_ids.tsv
-   ```
-
-2. **Missing Data Files**:
-   - Ensure raw data is placed in correct directories
-   - Check file permissions and paths
-
-3. **Memory Issues**:
-   - Large datasets may require >16GB RAM
-   - Consider processing in batches for very large cohorts
-
-### Data Validation
-```bash
-cd data_alignment
-python verify_final_alignment.py  # Validates sample consistency
-```
 
 ## Quality Metrics
 

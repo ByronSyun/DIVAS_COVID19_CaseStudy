@@ -11,14 +11,18 @@ from datetime import datetime
 def main():
     print("Starting single-cell protein data filtering for 120 dual time-point patients...")
     
+    # File paths - use relative paths from script location
+    script_dir = os.path.dirname(os.path.abspath(__file__))
+    repo_root = os.path.dirname(os.path.dirname(os.path.dirname(script_dir)))  # DIVAS_COVID19_CaseStudy directory
+    
     # Read sample ID mapping table
-    mapping_file = "/Users/byronsun/Desktop/DIVAS-code/DIVAS_COVID19_CaseStudy/preprocessing/process_bulk/sample_ids.tsv"
+    mapping_file = os.path.join(repo_root, "preprocessing", "process_bulk", "sample_ids.tsv")
     print(f"Reading sample ID mapping: {mapping_file}")
     id_mapping = pd.read_csv(mapping_file, sep='\t')
     print(f"Samples in mapping table: {len(id_mapping)}")
     
     # Read core samples data (120 dual time-point patients)
-    core_samples_file = "/Users/byronsun/Desktop/DIVAS-code/DIVAS_COVID19_CaseStudy/sample_distribution/core_samples_10X_metabolomics_proteomics_20250704_173841.csv"
+    core_samples_file = os.path.join(repo_root, "sample_distribution", "core_samples_10X_metabolomics_proteomics_20250704_173841.csv")
     print(f"Reading core samples data: {core_samples_file}")
     core_samples = pd.read_csv(core_samples_file)
     
@@ -42,7 +46,7 @@ def main():
     print(f"Mapped standardized sample IDs: {len(standardized_sample_ids)}")
     
     # Read complete single-cell protein data
-    sc_pro_file = "/Users/byronsun/Desktop/DIVAS-code/DIVAS_COVID19_CaseStudy/preprocessing/processed_omics_all/datablock_pro.tsv"
+    sc_pro_file = os.path.join(repo_root, "preprocessing", "processed_omics_all", "datablock_pro.tsv")
     print(f"\nReading single-cell protein data: {sc_pro_file}")
     sc_pro_data = pd.read_csv(sc_pro_file, sep='\t', index_col=0)
     print(f"Original single-cell protein data dimensions: {sc_pro_data.shape}")
@@ -62,7 +66,7 @@ def main():
         print(f"\nFiltered data dimensions: {filtered_data.shape}")
         
         # Save filtered data to processed_omics_120 directory
-        output_dir = "/Users/byronsun/Desktop/DIVAS-code/DIVAS_COVID19_CaseStudy/preprocessing/processed_omics_120"
+        output_dir = os.path.join(repo_root, "preprocessing", "processed_omics_120")
         os.makedirs(output_dir, exist_ok=True)
         output_file = os.path.join(output_dir, "sc_pro_120patients.csv")
         filtered_data.to_csv(output_file)

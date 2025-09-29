@@ -6,7 +6,9 @@ def verify_sample_order():
     Verify sample order consistency across all omics data files
     """
     # Path configuration for new git repo structure
-    base_dir = "/Users/byronsun/Desktop/DIVAS-code/DIVAS_COVID19_CaseStudy/preprocessing/processed_omics_120"
+    script_dir = os.path.dirname(os.path.abspath(__file__))
+    repo_root = os.path.dirname(script_dir)  # preprocessing directory
+    base_dir = os.path.join(repo_root, "processed_omics_120")
     
     files_to_check = {
         "GEX": {"path": os.path.join(base_dir, "sc_gex_120patients_aligned.csv"), "sep": ","},

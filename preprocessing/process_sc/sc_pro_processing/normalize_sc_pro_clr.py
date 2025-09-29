@@ -27,8 +27,10 @@ def main():
     Apply CLR normalization to single-cell proteomics data
     """
     # Path configuration for new git repo structure
-    input_file = "/Users/byronsun/Desktop/DIVAS-code/DIVAS_COVID19_CaseStudy/preprocessing/processed_omics_120/sc_pro_120patients.csv"
-    output_file = "/Users/byronsun/Desktop/DIVAS-code/DIVAS_COVID19_CaseStudy/preprocessing/processed_omics_120/sc_pro_120patients_clr_normalized.csv"
+    script_dir = os.path.dirname(os.path.abspath(__file__))
+    repo_root = os.path.dirname(os.path.dirname(os.path.dirname(script_dir)))  # DIVAS_COVID19_CaseStudy directory
+    input_file = os.path.join(repo_root, "preprocessing", "processed_omics_120", "sc_pro_120patients.csv")
+    output_file = os.path.join(repo_root, "preprocessing", "processed_omics_120", "sc_pro_120patients_clr_normalized.csv")
 
     print("Starting single-cell proteomics CLR normalization...")
 

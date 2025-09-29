@@ -14,7 +14,9 @@ import seaborn as sns
 from datetime import datetime
 
 # Path configuration
-WORKSPACE_ROOT = "/Users/byronsun/Desktop/DIVAS-code"
+script_dir = os.path.dirname(os.path.abspath(__file__))
+repo_root = os.path.dirname(os.path.dirname(os.path.dirname(os.path.dirname(script_dir))))  # DIVAS-code directory
+WORKSPACE_ROOT = repo_root
 BASE_DIR = os.path.join(WORKSPACE_ROOT, "DIVAS_COVID19_CaseStudy/preprocessing/process_sc/sc_gex_processing")
 DATABLOCK_FILE = os.path.join(BASE_DIR, "gex_divas_datablock.tsv")
 OUTPUT_DIR = os.path.join(BASE_DIR, "quality_reports")

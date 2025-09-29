@@ -24,14 +24,18 @@ def convert_to_3digit_format(sample_id):
 def main():
     print("Starting metabolomics data filtering for 120 dual time-point patients...")
     
+    # File paths - use relative paths from script location
+    script_dir = os.path.dirname(os.path.abspath(__file__))
+    repo_root = os.path.dirname(os.path.dirname(script_dir))  # DIVAS_COVID19_CaseStudy directory
+    
     # Read sample ID mapping table
-    mapping_file = "/Users/byronsun/Desktop/DIVAS-code/DIVAS_COVID19_CaseStudy/preprocessing/process_bulk/sample_ids.tsv"
+    mapping_file = os.path.join(script_dir, "sample_ids.tsv")
     print(f"Reading sample ID mapping: {mapping_file}")
     id_mapping = pd.read_csv(mapping_file, sep='\t')
     print(f"Samples in mapping table: {len(id_mapping)}")
     
     # Read core samples data (120 dual time-point patients)
-    core_samples_file = "/Users/byronsun/Desktop/DIVAS-code/DIVAS_COVID19_CaseStudy/sample_distribution/core_samples_10X_metabolomics_proteomics_20250704_173841.csv"
+    core_samples_file = os.path.join(repo_root, "sample_distribution", "core_samples_10X_metabolomics_proteomics_20250704_173841.csv")
     print(f"Reading core samples data: {core_samples_file}")
     core_samples = pd.read_csv(core_samples_file)
     
@@ -65,7 +69,7 @@ def main():
     print(f"Metabolomics format sample ID examples: {metabolomics_format_ids[:5]}")
     
     # Read complete metabolomics data
-    metabolomics_file = "/Users/byronsun/Desktop/DIVAS-code/DIVAS_COVID19_CaseStudy/preprocessing/processed_omics_all/improved_metabolomics_data.csv"
+    metabolomics_file = os.path.join(os.path.dirname(script_dir), "processed_omics_all", "improved_metabolomics_data.csv")
     print(f"\nReading metabolomics data: {metabolomics_file}")
     metabolomics_data = pd.read_csv(metabolomics_file, index_col=0)
     print(f"Original metabolomics data dimensions: {metabolomics_data.shape}")
@@ -132,7 +136,7 @@ def main():
         print(f"  Metabolite missing values: min={missing_values_per_metabolite.min()}, max={missing_values_per_metabolite.max()}, mean={missing_values_per_metabolite.mean():.2f}")
         
         # Save filtered data to processed_omics_120 directory
-        output_dir = "/Users/byronsun/Desktop/DIVAS-code/DIVAS_COVID19_CaseStudy/preprocessing/processed_omics_120"
+        output_dir = os.path.join(os.path.dirname(script_dir), "processed_omics_120")
         os.makedirs(output_dir, exist_ok=True)
         output_file = os.path.join(output_dir, "metabolomics_120patients.csv")
         filtered_metabolomics.to_csv(output_file)

@@ -14,13 +14,14 @@ def get_target_standard_ids():
     """
     Determine the 240 standardized sample IDs (e.g., COVID_1_T1) for 120 dual time-point patients
     """
-    # Define base paths
-    WORKSPACE_ROOT = "/Users/byronsun/Desktop/DIVAS-code"
-    BASE_DIR = os.path.join(WORKSPACE_ROOT, "DIVAS_COVID19_CaseStudy/preprocessing")
+    # Define base paths - use relative paths from script location
+    script_dir = os.path.dirname(os.path.abspath(__file__))
+    repo_root = os.path.dirname(os.path.dirname(os.path.dirname(os.path.dirname(script_dir))))  # DIVAS_COVID19_CaseStudy directory
+    BASE_DIR = os.path.join(repo_root, "preprocessing")
     
     # Read core samples and ID mapping table
-    core_samples_file = "/Users/byronsun/Desktop/DIVAS-code/DIVAS_COVID19_CaseStudy/sample_distribution/core_samples_10X_metabolomics_proteomics_20250704_173841.csv"
-    mapping_file = os.path.join(BASE_DIR, "process_bulk/sample_ids.tsv")
+    core_samples_file = os.path.join(repo_root, "sample_distribution", "core_samples_10X_metabolomics_proteomics_20250704_173841.csv")
+    mapping_file = os.path.join(BASE_DIR, "process_bulk", "sample_ids.tsv")
     
     core_samples = pd.read_csv(core_samples_file)
     id_mapping = pd.read_csv(mapping_file, sep='\t')
@@ -88,7 +89,9 @@ def main():
     print(f"Found {len(all_files)} total files in source directory")
     
     # Read sample ID mapping for reverse lookup
-    mapping_file = "/Users/byronsun/Desktop/DIVAS-code/DIVAS_COVID19_CaseStudy/preprocessing/process_bulk/sample_ids.tsv"
+    script_dir = os.path.dirname(os.path.abspath(__file__))
+    repo_root = os.path.dirname(os.path.dirname(os.path.dirname(os.path.dirname(script_dir))))  # DIVAS_COVID19_CaseStudy directory
+    mapping_file = os.path.join(repo_root, "preprocessing", "process_bulk", "sample_ids.tsv")
     id_mapping = pd.read_csv(mapping_file, sep='\t')
     
     # Create reverse mapping: standard_id -> (library_id, batch)
