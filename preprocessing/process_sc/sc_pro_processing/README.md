@@ -1,49 +1,42 @@
 # Preprocessing for Single-Cell Protein (CITE-seq) Data
 
-This directory contains scripts to process the raw CITE-seq data, converting it from single-cell resolution to a pseudo-bulk format suitable for DIVAS analysis, and then filtering it for a specific patient cohort.
+This directory contains scripts to process raw CITE-seq data, converting it from single-cell resolution to pseudo-bulk format for DIVAS analysis.
 
 ## Prerequisites
 
-- You must first run the workflow in the `data_acquisition` directory to download and unzip the raw CITE-seq `.txt` files. These files should be located in `../../data_acquisition/arrayexpress_data/pro_data_unzipped/`.
-- For Step 2, you must place the `core_samples.csv` file, which defines the patient cohort, into a subdirectory named `source_data` within this folder.
+- **Data Acquisition**: Run the data acquisition workflow to download raw CITE-seq files:
+  ```bash
+  cd ../../../data_acquisition
+  bash download_arrayexpress_data.sh
+  bash organize_arrayexpress_files.sh
+  bash unzip_pro_data.sh
+  ```
+- **Data Extraction**: Extract `.txt` files from `data_acquisition/arrayexpress_data/pro_data_unzipped/`
 
-The required structure for Step 2 is:
+## Processing Workflow
+
+Execute the following scripts in order:
+
+```bash
+# 1. Create pseudo-bulk data matrix with CLR normalization
+python create_pro_datablock.py
+# Input:  ../../../data_acquisition/arrayexpress_data/pro_data_unzipped/*.txt
+# Output: ../processed_omics_all/datablock_pro.tsv (CLR-normalized)
+
+# 2. Filter for dual-timepoint cohort
+python filter_sc_pro_for_120patients.py
+# Input:  ../processed_omics_all/datablock_pro.tsv + sample_distribution/core_samples_*.csv
+# Output: ../processed_omics_120/sc_pro_120patients.csv
 ```
-sc_pro_processing/
-├── source_data/
-│   └── core_samples.csv
-├── create_pro_datablock.py
-└── filter_sc_pro_for_120patients.py
-```
 
-## Step-by-Step Workflow
+## Key Parameters
 
-Please execute the following scripts in order.
+Default processing settings:
+- **Aggregation method**: Mean expression across cells (pseudo-bulk)
+- **Normalization**: Centered Log Ratio (CLR) transformation (applied during pseudo-bulk creation)
+- **Sample filtering**: Dual-timepoint patients only (T1 + T2)
+- **Expected output**: ~25 proteins × 240 samples (120 patients × 2 timepoints)
 
-### Step 1: Create Pseudo-Bulk Data Matrix
+## Integration
 
-This script aggregates the raw, single-cell protein expression data into a unified, sample-level matrix.
-
-**Script:** `create_pro_datablock.py`
-
-**What it Does:**
-1.  **Reads Raw Data**: Scans the `pro_data_unzipped` directory for all individual sample `.txt` files.
-2.  **Calculates Mean Expression**: For each sample, it computes the mean expression level for every protein across all cells, converting the data to a "pseudo-bulk" profile.
-3.  **Standardizes Sample IDs**: Converts complex filenames into a clean, standardized format (e.g., `COVID_1_T1`, `Healthy_1053BW`).
-4.  **Generates Output**:
-    - `datablock_pro.tsv`: A comprehensive data matrix where rows are proteins and columns are all available samples.
-    - `sample_ids.tsv`: A metadata file that maps the new standardized sample IDs back to their original filenames.
-
-### Step 2: Filter for the 120-Patient Cohort
-
-This script takes the full data matrix and filters it to include only the samples corresponding to the 120 patients with dual time points.
-
-**Script:** `filter_sc_pro_for_120patients.py`
-
-**What it Does:**
-1.  **Reads Inputs**: Loads the full `datablock_pro.tsv`, the `sample_ids.tsv` mapping file, and the `core_samples.csv` list.
-2.  **Matches Samples**: Identifies the exact sample columns in the datablock that correspond to the patients in the core list.
-3.  **Filters Data**: Subsets the main data matrix, keeping only the columns for the matched samples.
-4.  **Generates Output**:
-    - `sc_pro_120patients_[timestamp].csv`: The final, filtered data matrix containing only the 120-patient cohort.
-    - `sc_pro_120patients_metadata_[timestamp].csv`: The corresponding metadata for the filtered samples.
+The final output (`sc_pro_120patients.csv`) is compatible with other omics datasets for DIVAS multi-omics integration analysis. The CLR normalization ensures proper handling of compositional protein expression data.

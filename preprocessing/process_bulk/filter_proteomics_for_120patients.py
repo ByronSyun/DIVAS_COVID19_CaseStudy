@@ -29,7 +29,7 @@ def main():
     repo_root = os.path.dirname(os.path.dirname(script_dir))  # DIVAS_COVID19_CaseStudy directory
     
     # Read sample ID mapping table
-    mapping_file = os.path.join(script_dir, "sample_ids.tsv")
+    mapping_file = os.path.join(repo_root, "preprocessing", "sample_distribution", "sample_ids.tsv")
     print(f"Reading sample ID mapping: {mapping_file}")
     id_mapping = pd.read_csv(mapping_file, sep='\t')
     print(f"Samples in mapping table: {len(id_mapping)}")

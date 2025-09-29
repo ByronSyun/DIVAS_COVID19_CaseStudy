@@ -23,7 +23,7 @@ repo_root = os.path.dirname(os.path.dirname(os.path.dirname(os.path.dirname(scri
 WORKSPACE_ROOT = repo_root
 BASE_DIR = os.path.join(WORKSPACE_ROOT, "DIVAS_COVID19_CaseStudy/preprocessing/process_sc/sc_gex_processing")
 OUTPUT_DIR = os.path.join(BASE_DIR, "processed_gex_data")
-SAMPLE_IDS_FILE = os.path.join(WORKSPACE_ROOT, "DIVAS_COVID19_CaseStudy/preprocessing/process_bulk/sample_ids.tsv")
+SAMPLE_IDS_FILE = os.path.join(WORKSPACE_ROOT, "DIVAS_COVID19_CaseStudy/preprocessing/sample_distribution/sample_ids.tsv")
 
 os.makedirs(OUTPUT_DIR, exist_ok=True)
 log_file = os.path.join(OUTPUT_DIR, "process_gex_data.log")

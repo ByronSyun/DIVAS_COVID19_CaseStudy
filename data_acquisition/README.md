@@ -2,7 +2,7 @@
 
 This directory contains the scripts necessary to download and organize the raw single-cell sequencing data from the study publicly available on ArrayExpress under accession number [E-MTAB-11659](https://www.ebi.ac.uk/biostudies/ArrayExpress/studies/E-MTAB-9357/sdrf). 
 
-**Note**: The clinical metadata and bulk omics data (Proteomics, Metabolomics) are sourced from the associated Mendeley Data repository and should be downloaded manually. These scripts only handle the raw sequencing files from ArrayExpress (https://data.mendeley.com/datasets/tzydswhhb5/5).
+**Note**: The clinical metadata and bulk omics data (Proteomics, Metabolomics) are sourced from the associated Mendeley Data repository and should be downloaded manually. (https://data.mendeley.com/datasets/tzydswhhb5/5).
 
 ## Step-by-Step Instructions
 

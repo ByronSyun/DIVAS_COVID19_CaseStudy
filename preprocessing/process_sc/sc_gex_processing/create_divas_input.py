@@ -24,7 +24,7 @@ PROCESSED_DATA_DIR = os.path.join(BASE_DIR, "processed_gex_data")
 OUTPUT_DIR = BASE_DIR
 
 # Sample ID mapping file
-SAMPLE_MAP_FILE = os.path.join(WORKSPACE_ROOT, "DIVAS_COVID19_CaseStudy/preprocessing/process_bulk/sample_ids.tsv")
+SAMPLE_MAP_FILE = os.path.join(WORKSPACE_ROOT, "DIVAS_COVID19_CaseStudy/preprocessing/sample_distribution/sample_ids.tsv")
 
 os.makedirs(OUTPUT_DIR, exist_ok=True)
 log_file = os.path.join(OUTPUT_DIR, "create_divas_input.log")

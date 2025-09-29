@@ -1,18 +1,19 @@
 #!/usr/bin/env python3
 # Script to convert single-cell protein expression data (CITE-seq) 
-# into a pseudo-bulk format suitable for DIVAS analysis.
+# into a pseudo-bulk format with CLR normalization for DIVAS analysis.
 
 import os
 import pandas as pd
 import numpy as np
 import re
 import glob
+from scipy.stats import gmean
 
 # --- Path Definitions ---
-# It reads raw data from the 'data_acquisition' directory and writes output to the current directory.
+# It reads raw data from the 'data_acquisition' directory and writes output to '../processed_omics_all/'.
 SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
 SOURCE_DIR = os.path.abspath(os.path.join(SCRIPT_DIR, "../../../data_acquisition/arrayexpress_data/pro_data_unzipped"))
-OUTPUT_DIR = SCRIPT_DIR
+OUTPUT_DIR = os.path.abspath(os.path.join(SCRIPT_DIR, "../processed_omics_all"))
 
 # --- Function Definitions ---
 
@@ -42,6 +43,25 @@ def clean_protein_name(name):
     name = re.sub(r'[^a-zA-Z0-9_\-]', '_', name)
     name = re.sub(r'_+', '_', name).strip('_')
     return name if name else 'unknown_protein'
+
+def clr_transform(data_df):
+    """
+    Apply Centered Log-Ratio (CLR) transformation: clr(x) = log(x / g(x))
+    """
+    # Add pseudo-count to avoid log(0) issues
+    pseudo_count = np.min(data_df[data_df > 0].min()) / 100
+    if pd.isna(pseudo_count):
+        pseudo_count = 1e-12
+        
+    data_with_pseudo = data_df + pseudo_count
+    
+    # Calculate geometric mean for each sample (column-wise)
+    geometric_means = gmean(data_with_pseudo, axis=0)
+    
+    # Apply CLR transformation: log(x_i / g(x))
+    clr_data = np.log(data_with_pseudo.div(geometric_means, axis=1))
+    
+    return clr_data
 
 def convert_to_pseudo_bulk(file_path):
     """
@@ -99,6 +119,10 @@ if __name__ == "__main__":
 
     # Combine all series into a single DataFrame (proteins as rows, samples as columns)
     datablock_df = pd.DataFrame(results)
+    
+    # Apply CLR normalization
+    print("Applying CLR normalization...")
+    datablock_df = clr_transform(datablock_df)
 
     # Create and save the sample ID mapping file
     sample_ids_df = pd.DataFrame.from_dict(sample_mapping, orient='index', columns=['original_filename'])
@@ -109,12 +133,12 @@ if __name__ == "__main__":
     sample_ids_path = os.path.join(OUTPUT_DIR, "sample_ids.tsv")
     sample_ids_df.to_csv(sample_ids_path, sep='\t', index=False)
 
-    # Save the main datablock file
+    # Save the main datablock file (CLR-normalized)
     datablock_path = os.path.join(OUTPUT_DIR, "datablock_pro.tsv")
     datablock_df.to_csv(datablock_path, sep='\t')
 
     print("\n--- Processing Complete ---")
-    print(f"Created datablock with {datablock_df.shape[1]} samples and {datablock_df.shape[0]} proteins.")
+    print(f"Created CLR-normalized datablock with {datablock_df.shape[1]} samples and {datablock_df.shape[0]} proteins.")
     print(f"Output datablock saved to: {datablock_path}")
     print(f"Sample ID mapping file saved to: {sample_ids_path}")
 

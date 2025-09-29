@@ -7,15 +7,14 @@ def align_gex_to_standard():
     """
     # Path configuration - use relative paths from script location
     script_dir = os.path.dirname(os.path.abspath(__file__))
-    repo_root = os.path.dirname(script_dir)  # preprocessing directory
+    repo_root = os.path.dirname(os.path.dirname(os.path.dirname(script_dir)))  # preprocessing directory
     base_dir = os.path.join(repo_root, "processed_omics_120")
     
     # Reference file with correct sample order
     reference_file = os.path.join(base_dir, "proteomics_120patients.csv")
     
-    # GEX file to be aligned (from processed_omics_all)
-    gex_input_dir = os.path.join(repo_root, "processed_omics_all")
-    gex_file_to_fix = os.path.join(gex_input_dir, "gex_divas_datablock.tsv")
+    # GEX file to be aligned (from current directory)
+    gex_file_to_fix = os.path.join(script_dir, "gex_divas_datablock.tsv")
     
     # Output aligned GEX file
     output_gex_file = os.path.join(base_dir, "sc_gex_120patients_aligned.csv")

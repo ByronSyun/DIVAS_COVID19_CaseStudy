@@ -21,7 +21,7 @@ def get_target_standard_ids():
     
     # Read core samples and ID mapping table
     core_samples_file = os.path.join(repo_root, "sample_distribution", "core_samples_10X_metabolomics_proteomics_20250704_173841.csv")
-    mapping_file = os.path.join(BASE_DIR, "process_bulk", "sample_ids.tsv")
+    mapping_file = os.path.join(BASE_DIR, "sample_distribution", "sample_ids.tsv")
     
     core_samples = pd.read_csv(core_samples_file)
     id_mapping = pd.read_csv(mapping_file, sep='\t')
@@ -91,7 +91,7 @@ def main():
     # Read sample ID mapping for reverse lookup
     script_dir = os.path.dirname(os.path.abspath(__file__))
     repo_root = os.path.dirname(os.path.dirname(os.path.dirname(os.path.dirname(script_dir))))  # DIVAS_COVID19_CaseStudy directory
-    mapping_file = os.path.join(repo_root, "preprocessing", "process_bulk", "sample_ids.tsv")
+    mapping_file = os.path.join(repo_root, "preprocessing", "sample_distribution", "sample_ids.tsv")
     id_mapping = pd.read_csv(mapping_file, sep='\t')
     
     # Create reverse mapping: standard_id -> (library_id, batch)

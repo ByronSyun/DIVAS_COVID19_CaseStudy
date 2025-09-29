@@ -15,7 +15,7 @@ if (dir.exists(combined_data_dir) && length(list.files(combined_data_dir, patter
 dir.create(combined_data_dir, recursive = TRUE, showWarnings = FALSE)
 
 annotated_dir <- "/Users/byronsun/Desktop/DIVAS-code/DIVAS_COVID19_Analysis_Repo/sc_celltype_celltypist/celltypist_server/Adult_COVID19_PBMC/annotated_data_majority_voting"
-mapping_file <- "../preprocessing/process_bulk/sample_ids.tsv"
+mapping_file <- "../preprocessing/sample_distribution/sample_ids.tsv"
 proteomics_file <- "../preprocessing/processed_omics_120/proteomics_120patients.csv"
 metabolomics_file <- "../preprocessing/processed_omics_120/metabolomics_120patients.csv"
 
