@@ -2,61 +2,35 @@
 
 This directory contains the complete data preprocessing pipeline for COVID-19 multi-omics data, preparing datasets for DIVAS analysis.
 
-## Overview
+## Directory Structure & Data Flow
 
-The preprocessing pipeline processes raw omics data and prepares standardized datasets for downstream DIVAS integration analysis. It focuses on **120 patients with dual timepoints (T1 baseline + T2 follow-up)** across four major data types:
+The preprocessing pipeline processes raw omics data through the following directories in order:
 
-- **Single-cell RNA-seq (scRNA-seq)**: Gene expression at single-cell resolution
-- **Single-cell Proteomics (CITE-seq)**: Protein expression at single-cell resolution  
-- **Bulk Proteomics**: Plasma protein measurements
-- **Bulk Metabolomics**: Plasma metabolite measurements
+### 1. Single-Cell & Bulk Data Processing
+- **`process_sc/`**: Processes single-cell data (scRNA-seq + CITE-seq) into pseudo-bulk format
+- **`process_bulk/`**: Processes bulk omics data (proteomics + metabolomics)
 
-The dual-timepoint design enables longitudinal analysis of COVID-19 disease progression and recovery patterns across multiple biological scales.
+### 2. Data Output Directories
+- **`processed_omics_all/`**: Contains all processed samples (intermediate results)
+- **`processed_omics_120/`**: Contains final 120-patient datasets (240 samples: T1 + T2 timepoints)
+- **`sample_distribution/`**: Sample ID mapping and metadata files
 
-## Processing Workflow
+## Processing Order
 
-Execute preprocessing in the following order:
+1. **Run single-cell processing**: `process_sc/sc_gex_processing/` and `process_sc/sc_pro_processing/`
+2. **Run bulk processing**: `process_bulk/`
+3. **Generated outputs**:
+   - `processed_omics_all/`: All samples processed
+   - `processed_omics_120/`: Final 120 dual-timepoint patients (240 samples) for DIVAS analysis
 
-### 1. Single-Cell Data Processing
-- **scRNA-seq**: See `process_sc/sc_gex_processing/README.md` for detailed workflow
-- **sc-Proteomics**: See `process_sc/sc_pro_processing/README.md` for detailed workflow
+## Key Files
 
-### 2. Bulk Omics Data Processing  
-- **Bulk Proteomics & Metabolomics**: See `process_bulk/README.md` for detailed workflow
-
-### 3. Final Data Verification
-- **Sample Alignment**: See `processed_omics_120/README.md` for verification steps
-
-## Directory Structure
-
-```
-preprocessing/
-├── process_sc/                    # Single-cell data processing
-│   ├── sc_gex_processing/        # scRNA-seq workflow
-│   └── sc_pro_processing/        # sc-Proteomics workflow
-├── process_bulk/                 # Bulk omics processing
-├── processed_omics_120/          # Final 120-patient datasets
-└── processed_omics_all/          # Intermediate results
-```
-
-## Key Features
-
-- **120 dual-timepoint patients**: T1 baseline + T2 follow-up
-- **4 omics modalities**: scRNA-seq, sc-Proteomics, Bulk Proteomics, Metabolomics  
-- **Quality control**: Comprehensive data validation and filtering
-- **Sample alignment**: Consistent ordering across all datasets
-- **DIVAS-ready output**: Standardized format for multi-omics integration
+- **`sample_distribution/sample_ids.tsv`**: Sample ID conversion table
+- **`sample_distribution/patients_meta.csv`**: Patient metadata and clinical information
+- **`processed_omics_120/*.csv`**: Final aligned datasets ready for DIVAS integration
 
 ## Next Steps
 
-After successful preprocessing:
+After preprocessing completion:
 1. **4-Omics Integration**: `../multi_omics_integration/run_divas_analysis.R`
 2. **Cell Type Analysis**: `../scRNA_celltyist_analysis/`
-
-## Citation
-
-This preprocessing pipeline was developed for:
-```
-Prothero, J., ..., Marron J. S. (2024). 
-Data integration via analysis of subspaces (DIVAS).
-```

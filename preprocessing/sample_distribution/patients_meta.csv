@@ -1,0 +1,245 @@
+Study Subject ID,Sample ID,Blood draw time point,patient_has_dual_timepoints,analysis_priority,total_data_score,Sex,Age,Who Ordinal Scale,Patient Location,10X?,Metabolomics,Proteomics?,Isoplexis CD8 assay?,Isoplexis CD4 assay?,Isoplexis Monocyte assay?,Asthma,Chronic Hypertension,Diabetes,BMI
+INCOV001,INCOV001-1,T1,True,High_Priority,6,Female,77,3,Hospital,yes,yes,yes,yes,yes,yes,No,Yes,No,33.6577828531029
+INCOV001,INCOV001-2,T2,True,High_Priority,6,Female,77,3,Hospital,yes,yes,yes,yes,yes,yes,No,Yes,No,33.6577828531029
+INCOV002,INCOV002-1,T1,True,High_Priority,6,Male,39,5,ICU,yes,yes,yes,yes,yes,yes,No,No,No,27.9007471678588
+INCOV002,INCOV002-2,T2,True,High_Priority,6,Male,39,7,ICU,yes,yes,yes,yes,yes,yes,No,No,No,29.1619716815107
+INCOV003,INCOV003-1,T1,True,High_Priority,6,Male,64,7,ICU,yes,yes,yes,yes,yes,yes,No,Yes,No,24.5469878694859
+INCOV003,INCOV003-2,T2,True,High_Priority,6,Male,64,6,ICU,yes,yes,yes,yes,yes,yes,No,Yes,No,25.6857656572456
+INCOV004,INCOV004-1,T1,True,High_Priority,6,Male,76,4,Hospital,yes,yes,yes,yes,yes,yes,No,No,No,23.47762032935
+INCOV004,INCOV004-2,T2,True,High_Priority,6,Male,76,4,Hospital,yes,yes,yes,yes,yes,yes,No,No,No,23.2157881323684
+INCOV005,INCOV005-1,T1,True,High_Priority,6,Male,75,4,Hospital,yes,yes,yes,yes,yes,yes,No,Yes,No,29.7031206307311
+INCOV005,INCOV005-2,T2,True,High_Priority,6,Male,75,5,ICU,yes,yes,yes,yes,yes,yes,No,Yes,No,30.1459786593043
+INCOV006,INCOV006-1,T1,True,High_Priority,6,Male,26,4,Hospital,yes,yes,yes,yes,yes,yes,No,No,No,34.3897562670525
+INCOV006,INCOV006-2,T2,True,High_Priority,6,Male,26,3,Hospital,yes,yes,yes,yes,yes,yes,No,No,No,34.3897562670525
+INCOV007,INCOV007-1,T1,True,High_Priority,3,Male,57,4,Hospital,yes,yes,yes,no,no,no,No,Yes,No,25.6541329409189
+INCOV007,INCOV007-2,T2,True,High_Priority,3,Male,57,4,Hospital,yes,yes,yes,no,no,no,No,Yes,No,23.0918829184597
+INCOV009,INCOV009-1,T1,True,High_Priority,3,Female,65,4,Hospital,yes,yes,yes,no,no,no,No,No,T2DM,23.8095132133898
+INCOV009,INCOV009-2,T2,True,High_Priority,3,Female,65,4,Hospital,yes,yes,yes,no,no,no,No,No,T2DM,22.6079116119663
+INCOV010,INCOV010-1,T1,True,High_Priority,6,Female,40,3,Hospital,yes,yes,yes,yes,yes,yes,No,No,No,24.8489129134603
+INCOV010,INCOV010-2,T2,True,High_Priority,6,Female,40,1,Home (mobile phlebotomy),yes,yes,yes,yes,yes,yes,No,No,No,
+INCOV011,INCOV011-1,T1,True,High_Priority,6,Male,89,3,Hospital,yes,yes,yes,yes,yes,yes,No,Yes,No,17.8724742056516
+INCOV011,INCOV011-2,T2,True,High_Priority,6,Male,89,3,Hospital,yes,yes,yes,yes,yes,yes,No,Yes,No,17.4725737501034
+INCOV012,INCOV012-1,T1,True,High_Priority,6,Female,73,4,Hospital,yes,yes,yes,yes,yes,yes,No,Yes,T2DM,20.46875
+INCOV012,INCOV012-2,T2,True,High_Priority,6,Female,73,4,Hospital,yes,yes,yes,yes,yes,yes,No,Yes,T2DM,20.46875
+INCOV013,INCOV013-1,T1,True,High_Priority,3,Female,71,7,ICU,yes,yes,yes,no,no,no,No,Yes,No,36.9199987296345
+INCOV013,INCOV013-2,T2,True,High_Priority,3,Female,71,5,ICU,yes,yes,yes,no,no,no,No,Yes,No,36.7957238390999
+INCOV015,INCOV015-1,T1,True,High_Priority,4,Female,67,4,Hospital,yes,yes,yes,no,no,yes,No,Yes,No,27.1250542501085
+INCOV015,INCOV015-2,T2,True,High_Priority,4,Female,67,5,Hospital,yes,yes,yes,no,no,yes,No,Yes,No,27.1250542501085
+INCOV016,INCOV016-1,T1,True,High_Priority,3,Male,37,4,Hospital,yes,yes,yes,no,no,no,No,No,No,38.1138459082619
+INCOV016,INCOV016-2,T2,True,High_Priority,3,Male,37,4,Hospital,yes,yes,yes,no,no,no,No,No,No,38.1138459082619
+INCOV017,INCOV017-1,T1,True,High_Priority,3,Male,57,3,Hospital,yes,yes,yes,no,no,no,No,Yes,No,24.6435156204684
+INCOV017,INCOV017-2,T2,True,High_Priority,6,Male,57,3,Hospital,yes,yes,yes,yes,yes,yes,No,Yes,No,25.0123301399584
+INCOV018,INCOV018-1,T1,True,High_Priority,3,Male,69,3,Hospital,yes,yes,yes,no,no,no,No,Yes,No,32.6133305327835
+INCOV018,INCOV018-2,T2,True,High_Priority,3,Male,69,3,Hospital,yes,yes,yes,no,no,no,No,Yes,No,32.3602688021703
+INCOV019,INCOV019-1,T1,True,High_Priority,6,Male,81,3,Hospital,yes,yes,yes,yes,yes,yes,No,Yes,T2DM,27.6257255312968
+INCOV019,INCOV019-2,T2,True,High_Priority,3,Male,81,3,Hospital,yes,yes,yes,no,no,no,No,Yes,T2DM,27.6257255312968
+INCOV020,INCOV020-1,T1,True,High_Priority,3,Male,55,7,ICU,yes,yes,yes,no,no,no,No,No,T2DM,33.7148603291289
+INCOV020,INCOV020-2,T2,True,High_Priority,3,Male,55,6,ICU,yes,yes,yes,no,no,no,No,No,T2DM,31.8805371338553
+INCOV022,INCOV022-1,T1,True,High_Priority,6,Female,55,7,ICU,yes,yes,yes,yes,yes,yes,No,Yes,T2DM,27.8083396403479
+INCOV022,INCOV022-2,T2,True,High_Priority,6,Female,55,6,ICU,yes,yes,yes,yes,yes,yes,No,Yes,T2DM,27.9183990320643
+INCOV023,INCOV023-1,T1,True,High_Priority,6,Female,71,3,Hospital,yes,yes,yes,yes,yes,yes,No,Yes,No,34.6098381669604
+INCOV023,INCOV023-2,T2,True,High_Priority,3,Female,71,3,Hospital,yes,yes,yes,no,no,no,No,Yes,No,33.6484537734337
+INCOV024,INCOV024-1,T1,True,High_Priority,6,Female,61,3,Hospital,yes,yes,yes,yes,yes,yes,Yes,Yes,No,40.9320628062189
+INCOV024,INCOV024-2,T2,True,High_Priority,3,Female,61,2,Home (mobile phlebotomy),yes,yes,yes,no,no,no,Yes,Yes,No,
+INCOV025,INCOV025-1,T1,True,High_Priority,4,Female,67,5,ICU,yes,yes,yes,no,no,yes,No,No,No,28.2289786662965
+INCOV025,INCOV025-2,T2,True,High_Priority,4,Female,67,5,ICU,yes,yes,yes,no,no,yes,No,No,No,27.9050395668471
+INCOV026,INCOV026-1,T1,True,High_Priority,3,Male,33,7,ICU,yes,yes,yes,no,no,no,No,No,No,45.1903114186851
+INCOV026,INCOV026-2,T2,True,High_Priority,3,Male,33,7,ICU,yes,yes,yes,no,no,no,No,No,No,43.8062283737024
+INCOV027,INCOV027-1,T1,True,High_Priority,3,Female,38,3,Hospital,yes,yes,yes,no,no,no,Yes,No,T2DM,39.8751300728408
+INCOV027,INCOV027-2,T2,True,High_Priority,6,Female,38,4,Hospital,yes,yes,yes,yes,yes,yes,Yes,No,T2DM,39.8751300728408
+INCOV028,INCOV028-1,T1,True,High_Priority,3,Male,64,3,Hospital,yes,yes,yes,no,no,no,No,Yes,T1DM,38.7962962962963
+INCOV028,INCOV028-2,T2,True,High_Priority,3,Male,64,3,Hospital,yes,yes,yes,no,no,no,No,Yes,T1DM,39.6296296296296
+INCOV029,INCOV029-1,T1,True,High_Priority,6,Female,66,5,ICU,yes,yes,yes,yes,yes,yes,No,No,No,36.6015625
+INCOV029,INCOV029-2,T2,True,High_Priority,3,Female,66,4,Hospital,yes,yes,yes,no,no,no,No,No,No,36.6796875
+INCOV030,INCOV030-1,T1,True,High_Priority,3,Female,86,4,Hospital,yes,yes,yes,no,no,no,No,No,No,25.9087852537479
+INCOV030,INCOV030-2,T2,True,High_Priority,3,Female,86,3,Hospital,yes,yes,yes,no,no,no,No,No,No,25.8296744590799
+INCOV031,INCOV031-1,T1,True,High_Priority,6,Male,47,6,ICU,yes,yes,yes,yes,yes,yes,No,Yes,No,25.6321164723373
+INCOV031,INCOV031-2,T2,True,High_Priority,3,Male,47,6,ICU,yes,yes,yes,no,no,no,No,Yes,No,28.1597279578038
+INCOV032,INCOV032-1,T1,True,High_Priority,6,Male,63,5,ICU,yes,yes,yes,yes,yes,yes,No,Yes,T2DM,34.1761552964497
+INCOV032,INCOV032-2,T2,True,High_Priority,3,Male,63,5,Hospital,yes,yes,yes,no,no,no,No,Yes,T2DM,34.9593588553266
+INCOV033,INCOV033-1,T1,True,High_Priority,3,Female,88,5,Hospital,yes,yes,yes,no,no,no,No,Yes,No,26.8544915788056
+INCOV033,INCOV033-2,T2,True,High_Priority,6,Female,88,5,Hospital,yes,yes,yes,yes,yes,yes,No,Yes,No,26.8544915788056
+INCOV034,INCOV034-1,T1,True,High_Priority,6,Male,30,3,Hospital,yes,yes,yes,yes,yes,yes,No,No,No,40.5385426155468
+INCOV034,INCOV034-2,T2,True,High_Priority,3,Male,30,1,Home (mobile phlebotomy),yes,yes,yes,no,no,no,No,No,No,
+INCOV035,INCOV035-1,T1,True,High_Priority,6,Male,61,7,ICU,yes,yes,yes,yes,yes,yes,No,Yes,T2DM,26.9645509705221
+INCOV035,INCOV035-2,T2,True,High_Priority,3,Male,61,7,ICU,yes,yes,yes,no,no,no,No,Yes,T2DM,26.41425401194
+INCOV036,INCOV036-1,T1,True,High_Priority,3,Male,51,7,Hospital,yes,yes,yes,no,no,no,Yes,No,No,29.3081616843943
+INCOV036,INCOV036-2,T2,True,High_Priority,3,Male,51,6,Hospital,yes,yes,yes,no,no,no,Yes,No,No,30.3306678670701
+INCOV039,INCOV039-1,T1,True,High_Priority,6,Female,38,1,Home (mobile phlebotomy),yes,yes,yes,yes,yes,yes,No,No,No,
+INCOV039,INCOV039-2,T2,True,High_Priority,3,Female,38,1 or 2,Home (mobile phlebotomy),yes,yes,yes,no,no,no,No,No,No,
+INCOV040,INCOV040-1,T1,True,High_Priority,3,Female,76,3,Hospital,yes,yes,yes,no,no,no,No,No,No,20.6988766915594
+INCOV040,INCOV040-2,T2,True,High_Priority,6,Female,76,1 or 2,Home (mobile phlebotomy),yes,yes,yes,yes,yes,yes,No,No,No,
+INCOV041,INCOV041-1,T1,True,High_Priority,3,Male,65,5,Hospital,yes,yes,yes,no,no,no,No,Yes,T2DM,34.8765432098765
+INCOV041,INCOV041-2,T2,True,High_Priority,6,Male,65,6,Hospital,yes,yes,yes,yes,yes,yes,No,Yes,T2DM,33.5493827160494
+INCOV042,INCOV042-1,T1,True,High_Priority,3,Female,60,1,Home (mobile phlebotomy),yes,yes,yes,no,no,no,No,No,No,
+INCOV042,INCOV042-2,T2,True,High_Priority,6,Female,60,1 or 2,Home (mobile phlebotomy),yes,yes,yes,yes,yes,yes,No,No,No,
+INCOV043,INCOV043-1,T1,True,High_Priority,6,Male,75,3,Hospital,yes,yes,yes,yes,yes,yes,No,Yes,T2DM,22.6046435130616
+INCOV043,INCOV043-2,T2,True,High_Priority,3,Male,75,3,Hospital,yes,yes,yes,no,no,no,No,Yes,T2DM,21.1617006112771
+INCOV044,INCOV044-1,T1,True,High_Priority,6,Female,82,4,Hospital,yes,yes,yes,yes,yes,yes,No,Yes,No,25.4541156635016
+INCOV044,INCOV044-2,T2,True,High_Priority,3,Female,82,4,Hospital,yes,yes,yes,no,no,no,No,Yes,No,25.4541156635016
+INCOV045,INCOV045-1,T1,True,High_Priority,3,Female,48,4,Hospital,yes,yes,yes,no,no,no,No,No,No,22.5093763852768
+INCOV045,INCOV045-2,T2,True,High_Priority,6,Female,48,1 or 2,Home (mobile phlebotomy),yes,yes,yes,yes,yes,yes,No,No,No,
+INCOV047,INCOV047-1,T1,True,High_Priority,6,Male,61,5,ICU,yes,yes,yes,yes,yes,yes,No,No,No,35.1297169412291
+INCOV047,INCOV047-2,T2,True,High_Priority,3,Male,61,5,ICU,yes,yes,yes,no,no,no,No,No,No,34.4222007506439
+INCOV049,INCOV049-1,T1,True,High_Priority,3,Male,82,3,Hospital,yes,yes,yes,no,no,no,No,Yes,No,25.7784584827172
+INCOV049,INCOV049-2,T2,True,High_Priority,6,Male,82,3,Hospital,yes,yes,yes,yes,yes,yes,No,Yes,No,25.7784584827172
+INCOV050,INCOV050-1,T1,True,High_Priority,3,Female,89,3,Hospital,yes,yes,yes,no,no,no,No,No,No,17.7282241872784
+INCOV050,INCOV050-2,T2,True,High_Priority,6,Female,89,3,Hospital,yes,yes,yes,yes,yes,yes,No,No,No,18.2835661497715
+INCOV051,INCOV051-1,T1,True,High_Priority,6,Male,34,5,ICU,yes,yes,yes,yes,yes,yes,No,No,No,29.6156098092346
+INCOV051,INCOV051-2,T2,True,High_Priority,3,Male,34,5,ICU,yes,yes,yes,no,no,no,No,No,No,29.6156098092346
+INCOV052,INCOV052-1,T1,True,High_Priority,6,Female,89,4,Hospital,yes,yes,yes,yes,yes,yes,No,Yes,No,28.1138659320478
+INCOV052,INCOV052-2,T2,True,High_Priority,3,Female,89,4,Hospital,yes,yes,yes,no,no,no,No,Yes,No,27.8240587695133
+INCOV053,INCOV053-1,T1,True,High_Priority,3,Male,86,4,ICU,yes,yes,yes,no,no,no,No,Yes,T2DM,30.7058204631036
+INCOV053,INCOV053-2,T2,True,High_Priority,3,Male,86,4,ICU,yes,yes,yes,no,no,no,No,Yes,T2DM,30.858040273875
+INCOV056,INCOV056-1,T1,True,High_Priority,3,Female,61,1 or 2,Home (mobile phlebotomy),yes,yes,yes,no,no,no,No,No,No,
+INCOV056,INCOV056-2,T2,True,High_Priority,3,Female,61,1 or 2,Home (mobile phlebotomy),yes,yes,yes,no,no,no,No,No,No,
+INCOV057,INCOV057-1,T1,True,High_Priority,3,Female,39,1 or 2,Home (mobile phlebotomy),yes,yes,yes,no,no,no,No,No,T1DM,
+INCOV057,INCOV057-2,T2,True,High_Priority,3,Female,39,1 or 2,Home (mobile phlebotomy),yes,yes,yes,no,no,no,No,No,T1DM,
+INCOV058,INCOV058-1,T1,True,High_Priority,3,Female,63,1 or 2,Home (mobile phlebotomy),yes,yes,yes,no,no,no,No,Yes,T2DM,
+INCOV058,INCOV058-2,T2,True,High_Priority,3,Female,63,1 or 2,Home (mobile phlebotomy),yes,yes,yes,no,no,no,No,Yes,T2DM,
+INCOV059,INCOV059-1,T1,True,High_Priority,3,Female,82,4,Hospital,yes,yes,yes,no,no,no,Yes,No,No,17.9784699621771
+INCOV059,INCOV059-2,T2,True,High_Priority,3,Female,82,3,Hospital,yes,yes,yes,no,no,no,Yes,No,No,18.0930156729121
+INCOV060,INCOV060-1,T1,True,High_Priority,3,Female,39,1 or 2,Home (mobile phlebotomy),yes,yes,yes,no,no,no,No,No,No,
+INCOV060,INCOV060-2,T2,True,High_Priority,3,Female,39,1 or 2,Home (mobile phlebotomy),yes,yes,yes,no,no,no,No,No,No,
+INCOV061,INCOV061-1,T1,True,High_Priority,3,Female,61,1 or 2,Home (mobile phlebotomy),yes,yes,yes,no,no,no,No,No,No,
+INCOV061,INCOV061-2,T2,True,High_Priority,3,Female,61,1 or 2,Home (mobile phlebotomy),yes,yes,yes,no,no,no,No,No,No,
+INCOV062,INCOV062-1,T1,True,High_Priority,3,Female,77,4,Hospital,yes,yes,yes,no,no,no,No,Yes,No,29.6395061684441
+INCOV062,INCOV062-2,T2,True,High_Priority,3,Female,77,4,Hospital,yes,yes,yes,no,no,no,No,Yes,No,27.9928669368638
+INCOV063,INCOV063-1,T1,True,High_Priority,3,Female,81,1 or 2,Home (mobile phlebotomy),yes,yes,yes,no,no,no,Yes,Yes,No,
+INCOV063,INCOV063-2,T2,True,High_Priority,3,Female,81,1 or 2,Home (mobile phlebotomy),yes,yes,yes,no,no,no,Yes,Yes,No,
+INCOV066,INCOV066-1,T1,True,High_Priority,3,Male,53,1 or 2,Home (mobile phlebotomy),yes,yes,yes,no,no,no,No,No,No,
+INCOV066,INCOV066-2,T2,True,High_Priority,3,Male,53,1 or 2,Home (mobile phlebotomy),yes,yes,yes,no,no,no,No,No,No,
+INCOV067,INCOV067-1,T1,True,High_Priority,3,Female,41,1 or 2,Home (mobile phlebotomy),yes,yes,yes,no,no,no,No,No,No,
+INCOV067,INCOV067-2,T2,True,High_Priority,3,Female,41,1 or 2,Home (mobile phlebotomy),yes,yes,yes,no,no,no,No,No,No,
+INCOV068,INCOV068-1,T1,True,High_Priority,3,Female,66,1 or 2,Home (mobile phlebotomy),yes,yes,yes,no,no,no,No,No,No,
+INCOV068,INCOV068-2,T2,True,High_Priority,3,Female,66,1 or 2,Home (mobile phlebotomy),yes,yes,yes,no,no,no,No,No,No,
+INCOV069,INCOV069-1,T1,True,High_Priority,3,Male,61,3,Hospital,yes,yes,yes,no,no,no,No,No,No,31.263696128561
+INCOV069,INCOV069-2,T2,True,High_Priority,3,Male,61,1 or 2,Home (mobile phlebotomy),yes,yes,yes,no,no,no,No,No,No,
+INCOV070,INCOV070-1,T1,True,High_Priority,3,Male,42,6,ICU,yes,yes,yes,no,no,no,,,,31.9660310847621
+INCOV070,INCOV070-2,T2,True,High_Priority,3,Male,42,2,Clinic,yes,yes,yes,no,no,no,,,,31.9660310847621
+INCOV071,INCOV071-1,T1,True,High_Priority,3,Female,80,4,ICU,yes,yes,yes,no,no,no,No,No,No,19.1633714880333
+INCOV071,INCOV071-2,T2,True,High_Priority,3,Female,80,1,Clinic,yes,yes,yes,no,no,no,No,No,No,19.9791883454735
+INCOV072,INCOV072-1,T1,True,High_Priority,3,Female,84,4,ICU,yes,yes,yes,no,no,no,No,Yes,No,13.867472915092
+INCOV072,INCOV072-2,T2,True,High_Priority,3,Female,84,4,Hospital,yes,yes,yes,no,no,no,No,Yes,No,15.6815318720081
+INCOV073,INCOV073-1,T1,True,High_Priority,3,Female,55,4,Hospital,yes,yes,yes,no,no,no,No,No,No,27.9953640715545
+INCOV073,INCOV073-2,T2,True,High_Priority,3,Female,55,3,Hospital,yes,yes,yes,no,no,no,No,No,No,29.952128999748
+INCOV074,INCOV074-1,T1,True,High_Priority,3,Female,30,1 or 2,Home (mobile phlebotomy),yes,yes,yes,no,no,no,Yes,No,No,
+INCOV074,INCOV074-2,T2,True,High_Priority,3,Female,30,1 or 2,Home (mobile phlebotomy),yes,yes,yes,no,no,no,Yes,No,No,
+INCOV075,INCOV075-1,T1,True,High_Priority,3,Male,57,7,ICU,yes,yes,yes,no,no,no,No,Yes,T2DM,23.2290657439446
+INCOV075,INCOV075-2,T2,True,High_Priority,3,Male,57,6,ICU,yes,yes,yes,no,no,no,No,Yes,T2DM,24.0484429065744
+INCOV076,INCOV076-1,T1,True,High_Priority,3,Female,47,1 or 2,Clinic,yes,yes,yes,no,no,no,No,No,No,
+INCOV076,INCOV076-2,T2,True,High_Priority,3,Female,47,1 or 2,Home (mobile phlebotomy),yes,yes,yes,no,no,no,No,No,No,
+INCOV077,INCOV077-1,T1,True,High_Priority,3,Female,51,1,Home (mobile phlebotomy),yes,yes,yes,no,no,no,Yes,No,No,
+INCOV077,INCOV077-2,T2,True,High_Priority,3,Female,51,1,Home (mobile phlebotomy),yes,yes,yes,no,no,no,Yes,No,No,
+INCOV078,INCOV078-1,T1,True,High_Priority,3,Female,58,1,Home (mobile phlebotomy),yes,yes,yes,no,no,no,Yes,Yes,No,
+INCOV078,INCOV078-2,T2,True,High_Priority,3,Female,58,1,Home (mobile phlebotomy),yes,yes,yes,no,no,no,Yes,Yes,No,
+INCOV079,INCOV079-1,T1,True,High_Priority,3,Female,83,4,Hospital,yes,yes,yes,no,no,no,No,Yes,No,27.2788890250526
+INCOV079,INCOV079-2,T2,True,High_Priority,3,Female,83,4,Hospital,yes,yes,yes,no,no,no,No,Yes,No,27.2788890250526
+INCOV080,INCOV080-1,T1,True,High_Priority,3,Male,66,4,ICU,yes,yes,yes,no,no,no,No,Yes,No,28.9629536551317
+INCOV080,INCOV080-2,T2,True,High_Priority,3,Male,66,4,Hospital,yes,yes,yes,no,no,no,No,Yes,No,27.6166423410075
+INCOV081,INCOV081-1,T1,True,High_Priority,3,Male,23,1 or 2,Home (mobile phlebotomy),yes,yes,yes,no,no,no,No,No,No,
+INCOV081,INCOV081-2,T2,True,High_Priority,3,Male,23,1 or 2,Home (mobile phlebotomy),yes,yes,yes,no,no,no,No,No,No,
+INCOV082,INCOV082-1,T1,True,High_Priority,3,Female,60,1 or 2,Home (mobile phlebotomy),yes,yes,yes,no,no,no,Yes,No,No,
+INCOV082,INCOV082-2,T2,True,High_Priority,3,Female,60,1 or 2,Home (mobile phlebotomy),yes,yes,yes,no,no,no,Yes,No,No,
+INCOV083,INCOV083-1,T1,True,High_Priority,3,Female,42,1 or 2,Clinic,yes,yes,yes,no,no,no,No,No,No,
+INCOV083,INCOV083-2,T2,True,High_Priority,3,Female,42,1 or 2,Clinic,yes,yes,yes,no,no,no,No,No,No,
+INCOV086,INCOV086-1,T1,True,High_Priority,3,Male,71,5,ICU,yes,yes,yes,no,no,no,No,No,No,18.5031503684751
+INCOV086,INCOV086-2,T2,True,High_Priority,3,Male,71,5,ICU,yes,yes,yes,no,no,no,No,No,No,17.5020470836135
+INCOV087,INCOV087-1,T1,True,High_Priority,3,Male,56,5,ICU,yes,yes,yes,no,no,no,No,No,No,27.1932309772737
+INCOV087,INCOV087-2,T2,True,High_Priority,3,Male,56,4,ICU,yes,yes,yes,no,no,no,No,No,No,27.1932309772737
+INCOV088,INCOV088-1,T1,True,High_Priority,3,Male,24,1,Home (mobile phlebotomy),yes,yes,yes,no,no,no,Yes,No,No,
+INCOV088,INCOV088-2,T2,True,High_Priority,3,Male,24,1 or 2,Home (mobile phlebotomy),yes,yes,yes,no,no,no,Yes,No,No,
+INCOV090,INCOV090-1,T1,True,High_Priority,3,Female,69,4,Hospital,yes,yes,yes,no,no,no,No,No,T2DM,38.125
+INCOV090,INCOV090-2,T2,True,High_Priority,3,Female,69,4,Hospital,yes,yes,yes,no,no,no,No,No,T2DM,37.578125
+INCOV091,INCOV091-1,T1,True,High_Priority,3,Male,81,4,Hospital,yes,yes,yes,no,no,no,No,Yes,T2DM,28.6322051412396
+INCOV091,INCOV091-2,T2,True,High_Priority,3,Male,81,3,Hospital,yes,yes,yes,no,no,no,No,Yes,T2DM,27.3462144215538
+INCOV092,INCOV092-1,T1,True,High_Priority,3,Female,75,1 or 2,Home (mobile phlebotomy),yes,yes,yes,no,no,no,No,Yes,No,
+INCOV092,INCOV092-2,T2,True,High_Priority,3,Female,75,1 or 2,Home (mobile phlebotomy),yes,yes,yes,no,no,no,No,Yes,No,
+INCOV093,INCOV093-1,T1,True,High_Priority,3,Male,66,3,Hospital,yes,yes,yes,no,no,no,Yes,Yes,T2DM,27.7542128800494
+INCOV093,INCOV093-2,T2,True,High_Priority,3,Male,66,1 or 2,Home (mobile phlebotomy),yes,yes,yes,no,no,no,Yes,Yes,T2DM,
+INCOV094,INCOV094-1,T1,True,High_Priority,3,Female,38,1 or 2,Home (mobile phlebotomy),yes,yes,yes,no,no,no,No,No,No,
+INCOV094,INCOV094-2,T2,True,High_Priority,3,Female,38,1 or 2,Home (mobile phlebotomy),yes,yes,yes,no,no,no,No,No,No,
+INCOV096,INCOV096-1,T1,True,High_Priority,3,Male,72,6,ICU,yes,yes,yes,no,no,no,No,Yes,T2DM,32.8225989284513
+INCOV096,INCOV096-2,T2,True,High_Priority,3,Male,72,6,ICU,yes,yes,yes,no,no,no,No,Yes,T2DM,32.6072679139254
+INCOV097,INCOV097-1,T1,True,High_Priority,3,Female,26,1 or 2,Home (mobile phlebotomy),yes,yes,yes,no,no,no,No,No,No,
+INCOV097,INCOV097-2,T2,True,High_Priority,3,Female,26,1 or 2,Home (mobile phlebotomy),yes,yes,yes,no,no,no,No,No,No,
+INCOV098,INCOV098-1,T1,True,High_Priority,3,Female,50,3,Hospital,yes,yes,yes,no,no,no,No,No,No,43.7993309822397
+INCOV098,INCOV098-2,T2,True,High_Priority,3,Female,50,1 or 2,Home (mobile phlebotomy),yes,yes,yes,no,no,no,No,No,No,
+INCOV100,INCOV100-1,T1,True,High_Priority,3,Female,32,1 or 2,Home (mobile phlebotomy),yes,yes,yes,no,no,no,Yes,No,No,
+INCOV100,INCOV100-2,T2,True,High_Priority,3,Female,32,1 or 2,Home (mobile phlebotomy),yes,yes,yes,no,no,no,Yes,No,No,
+INCOV101,INCOV101-1,T1,True,High_Priority,3,Female,19,1 or 2,Clinic,yes,yes,yes,no,no,no,Yes,No,No,
+INCOV101,INCOV101-2,T2,True,High_Priority,3,Female,19,1 or 2,Home (mobile phlebotomy),yes,yes,yes,no,no,no,Yes,No,No,
+INCOV102,INCOV102-1,T1,True,High_Priority,3,Female,55,1 or 2,Home (mobile phlebotomy),yes,yes,yes,no,no,no,No,No,No,
+INCOV102,INCOV102-2,T2,True,High_Priority,3,Female,55,1 or 2,Home (mobile phlebotomy),yes,yes,yes,no,no,no,No,No,No,
+INCOV103,INCOV103-1,T1,True,High_Priority,3,Female,25,1 or 2,Home (mobile phlebotomy),yes,yes,yes,no,no,no,No,No,No,
+INCOV103,INCOV103-2,T2,True,High_Priority,3,Female,25,1 or 2,Home (mobile phlebotomy),yes,yes,yes,no,no,no,No,No,No,
+INCOV104,INCOV104-1,T1,True,High_Priority,3,Female,32,3,Hospital,yes,yes,yes,no,no,no,Yes,No,T2DM,29.7908793146888
+INCOV104,INCOV104-2,T2,True,High_Priority,3,Female,32,1 or 2,Home (mobile phlebotomy),yes,yes,yes,no,no,no,Yes,No,T2DM,
+INCOV105,INCOV105-1,T1,True,High_Priority,3,Female,27,4,Hospital,yes,yes,yes,no,no,no,Yes,No,No,40.5946082136558
+INCOV105,INCOV105-2,T2,True,High_Priority,3,Female,27,1 or 2,Clinic,yes,yes,yes,no,no,no,Yes,No,No,
+INCOV106,INCOV106-1,T1,True,High_Priority,3,Female,81,7,ICU,yes,yes,yes,no,no,no,No,No,No,24.1655433175152
+INCOV106,INCOV106-2,T2,True,High_Priority,3,Female,81,7,ICU,yes,yes,yes,no,no,no,No,No,No,24.5215734216407
+INCOV107,INCOV107-1,T1,True,High_Priority,3,Male,71,1 or 2,Home (mobile phlebotomy),yes,yes,yes,no,no,no,No,Yes,No,
+INCOV107,INCOV107-2,T2,True,High_Priority,3,Male,71,1 or 2,Home (mobile phlebotomy),yes,yes,yes,no,no,no,No,Yes,No,
+INCOV108,INCOV108-1,T1,True,High_Priority,3,Male,57,1,Home (mobile phlebotomy),yes,yes,yes,no,no,no,No,Yes,No,27.7202047497863
+INCOV108,INCOV108-2,T2,True,High_Priority,3,Male,57,1 or 2,Home (mobile phlebotomy),yes,yes,yes,no,no,no,No,Yes,No,
+INCOV109,INCOV109-1,T1,True,High_Priority,3,Female,36,1 or 2,Home (mobile phlebotomy),yes,yes,yes,no,no,no,No,No,Other,
+INCOV109,INCOV109-2,T2,True,High_Priority,3,Female,36,1 or 2,Home (mobile phlebotomy),yes,yes,yes,no,no,no,No,No,Other,
+INCOV110,INCOV110-1,T1,True,High_Priority,3,Female,41,1 or 2,Home (mobile phlebotomy),yes,yes,yes,no,no,no,Yes,No,Other,
+INCOV110,INCOV110-2,T2,True,High_Priority,3,Female,41,1 or 2,Home (mobile phlebotomy),yes,yes,yes,no,no,no,Yes,No,Other,
+INCOV111,INCOV111-1,T1,True,High_Priority,3,Male,28,4,ICU,yes,yes,yes,no,no,no,No,No,No,49.562946286979
+INCOV111,INCOV111-2,T2,True,High_Priority,3,Male,28,4,ICU,yes,yes,yes,no,no,no,No,No,No,48.5465770627587
+INCOV112,INCOV112-1,T1,True,High_Priority,3,Male,32,1 or 2,Home (mobile phlebotomy),yes,yes,yes,no,no,no,No,No,No,
+INCOV112,INCOV112-2,T2,True,High_Priority,3,Male,32,1 or 2,Home (mobile phlebotomy),yes,yes,yes,no,no,no,No,No,No,
+INCOV113,INCOV113-1,T1,True,High_Priority,3,Female,33,1 or 2,Home (mobile phlebotomy),yes,yes,yes,no,no,no,No,No,No,
+INCOV113,INCOV113-2,T2,True,High_Priority,3,Female,33,1 or 2,Home (mobile phlebotomy),yes,yes,yes,no,no,no,No,No,No,
+INCOV114,INCOV114-1,T1,True,High_Priority,3,Female,32,1 or 2,Home (mobile phlebotomy),yes,yes,yes,no,no,no,No,No,No,39.2619820293449
+INCOV114,INCOV114-2,T2,True,High_Priority,3,Female,32,1,Home (mobile phlebotomy),yes,yes,yes,no,no,no,No,No,No,40.4690113658576
+INCOV115,INCOV115-1,T1,True,High_Priority,3,Male,69,3,ICU,yes,yes,yes,no,no,no,No,No,No,32.4939219625731
+INCOV115,INCOV115-2,T2,True,High_Priority,3,Male,69,3,Hospital,yes,yes,yes,no,no,no,No,No,No,32.4939219625731
+INCOV116,INCOV116-1,T1,True,High_Priority,3,Female,27,1 or 2,Home (mobile phlebotomy),yes,yes,yes,no,no,no,Yes,No,No,
+INCOV116,INCOV116-2,T2,True,High_Priority,3,Female,27,1 or 2,Home (mobile phlebotomy),yes,yes,yes,no,no,no,Yes,No,No,
+INCOV117,INCOV117-1,T1,True,High_Priority,3,Male,39,4,Hospital,yes,yes,yes,no,no,no,No,Yes,T2DM,30.5154809156736
+INCOV117,INCOV117-2,T2,True,High_Priority,3,Male,39,4,Hospital,yes,yes,yes,no,no,no,No,Yes,T2DM,20.5179695269701
+INCOV119,INCOV119-1,T1,True,High_Priority,3,Female,53,1 or 2,Home (mobile phlebotomy),yes,yes,yes,no,no,no,No,Yes,No,
+INCOV119,INCOV119-2,T2,True,High_Priority,3,Female,53,1,Home (mobile phlebotomy),yes,yes,yes,no,no,no,No,Yes,No,
+INCOV120,INCOV120-1,T1,True,High_Priority,3,Female,26,1 or 2,Home (mobile phlebotomy),yes,yes,yes,no,no,no,No,No,No,
+INCOV120,INCOV120-2,T2,True,High_Priority,3,Female,26,1 or 2,Home (mobile phlebotomy),yes,yes,yes,no,no,no,No,No,No,
+INCOV121,INCOV121-1,T1,True,High_Priority,3,Female,86,4,Hospital,yes,yes,yes,no,no,no,No,Yes,T2DM,21.5024977073496
+INCOV121,INCOV121-2,T2,True,High_Priority,3,Female,86,4,Hospital,yes,yes,yes,no,no,no,No,Yes,T2DM,21.8584993250209
+INCOV122,INCOV122-1,T1,True,High_Priority,3,Female,53,1 or 2,Home (mobile phlebotomy),yes,yes,yes,no,no,no,No,No,No,
+INCOV122,INCOV122-2,T2,True,High_Priority,3,Female,53,1 or 2,Home (mobile phlebotomy),yes,yes,yes,no,no,no,No,No,No,
+INCOV123,INCOV123-1,T1,True,High_Priority,3,Female,42,1 or 2,Home (mobile phlebotomy),yes,yes,yes,no,no,no,No,No,No,
+INCOV123,INCOV123-2,T2,True,High_Priority,3,Female,42,1 or 2,Home (mobile phlebotomy),yes,yes,yes,no,no,no,No,No,No,
+INCOV124,INCOV124-1,T1,True,High_Priority,3,Male,48,4,Hospital,yes,yes,yes,no,no,no,No,Yes,No,28.4061792613381
+INCOV124,INCOV124-2,T2,True,High_Priority,3,Male,48,1 or 2,Home (mobile phlebotomy),yes,yes,yes,no,no,no,No,Yes,No,
+INCOV125,INCOV125-1,T1,True,High_Priority,3,Male,50,4,Hospital,yes,yes,yes,no,no,no,No,Yes,No,24.4929112957889
+INCOV125,INCOV125-2,T2,True,High_Priority,3,Male,50,3,Hospital,yes,yes,yes,no,no,no,No,Yes,No,25.1693143693645
+INCOV126,INCOV126-1,T1,True,High_Priority,3,Female,36,1 or 2,Home (mobile phlebotomy),yes,yes,yes,no,no,no,No,No,No,
+INCOV126,INCOV126-2,T2,True,High_Priority,3,Female,36,1 or 2,Home (mobile phlebotomy),yes,yes,yes,no,no,no,No,No,No,
+INCOV127,INCOV127-1,T1,True,High_Priority,3,Male,63,1 or 2,Home (mobile phlebotomy),yes,yes,yes,no,no,no,No,No,No,
+INCOV127,INCOV127-2,T2,True,High_Priority,3,Male,63,1 or 2,Home (mobile phlebotomy),yes,yes,yes,no,no,no,No,No,No,
+INCOV128,INCOV128-1,T1,True,High_Priority,3,Female,62,1,Home (mobile phlebotomy),yes,yes,yes,no,no,no,No,Yes,No,
+INCOV128,INCOV128-2,T2,True,High_Priority,3,Female,62,1 or 2,Home (mobile phlebotomy),yes,yes,yes,no,no,no,No,Yes,No,
+INCOV130,INCOV130-1,T1,True,High_Priority,3,Male,44,4,ICU,yes,yes,yes,no,no,no,No,Yes,No,25.6595553041966
+INCOV130,INCOV130-2,T2,True,High_Priority,3,Male,44,3,Hospital,yes,yes,yes,no,no,no,No,Yes,No,22.8957710027242
+INCOV131,INCOV131-1,T1,True,High_Priority,3,Female,55,1 or 2,Home (mobile phlebotomy),yes,yes,yes,no,no,no,No,No,No,
+INCOV131,INCOV131-2,T2,True,High_Priority,3,Female,55,1 or 2,Home (mobile phlebotomy),yes,yes,yes,no,no,no,No,No,No,
+INCOV132,INCOV132-1,T1,True,High_Priority,3,Female,37,1 or 2,Home (mobile phlebotomy),yes,yes,yes,no,no,no,No,No,No,
+INCOV132,INCOV132-2,T2,True,High_Priority,3,Female,37,1,Home (mobile phlebotomy),yes,yes,yes,no,no,no,No,No,No,
+INCOV133,INCOV133-1,T1,True,High_Priority,3,Female,63,4,Hospital,yes,yes,yes,no,no,no,No,Yes,No,29.4462448960993
+INCOV133,INCOV133-2,T2,True,High_Priority,3,Female,63,4,Hospital,yes,yes,yes,no,no,no,No,Yes,No,29.3426824873205
+INCOV134,INCOV134-1,T1,True,High_Priority,3,Female,28,1 or 2,Home (mobile phlebotomy),yes,yes,yes,no,no,no,No,No,No,
+INCOV134,INCOV134-2,T2,True,High_Priority,3,Female,28,1,Home (mobile phlebotomy),yes,yes,yes,no,no,no,No,No,No,
+INCOV135,INCOV135-1,T1,True,High_Priority,3,Female,50,1 or 2,Home (mobile phlebotomy),yes,yes,yes,no,no,no,No,No,No,
+INCOV135,INCOV135-2,T2,True,High_Priority,3,Female,50,1 or 2,Home (mobile phlebotomy),yes,yes,yes,no,no,no,No,No,No,
+INCOV136,INCOV136-1,T1,True,High_Priority,3,Female,42,4,Hospital,yes,yes,yes,no,no,no,No,No,T2DM,56.0584454502242
+INCOV136,INCOV136-2,T2,True,High_Priority,3,Female,42,3,Hospital,yes,yes,yes,no,no,no,No,No,T2DM,56.1015010918911
+INCOV137,INCOV137-1,T1,True,High_Priority,3,Male,53,5,ICU,yes,yes,yes,no,no,no,No,Yes,T2DM,54.4498866775511
+INCOV137,INCOV137-2,T2,True,High_Priority,3,Male,53,3,ICU,yes,yes,yes,no,no,no,No,Yes,T2DM,55.5521111042222
+INCOV142,INCOV142-1,T1,True,High_Priority,3,Male,64,5,ICU,yes,yes,yes,no,no,no,No,Yes,No,30.9804196371603
+INCOV142,INCOV142-2,T2,True,High_Priority,3,Male,64,5,Hospital,yes,yes,yes,no,no,no,No,Yes,No,28.6669467421775
+INCOV008,INCOV008-1,T1,False,Low_Priority,6,Male,78,7,ICU,yes,yes,yes,yes,yes,yes,No,No,No,26.7881430707773
+INCOV014,INCOV014-1,T1,False,Low_Priority,6,Male,76,4,Hospital,yes,yes,yes,yes,yes,yes,No,No,No,22.4210212205692
+INCOV048,INCOV048-1,T1,False,Low_Priority,6,Male,64,6,ICU,yes,yes,yes,yes,yes,yes,No,No,No,23.1054570698517
+INCOV055,INCOV055-1,T1,False,Low_Priority,3,Female,67,3,ICU,yes,yes,yes,no,no,no,No,Yes,T2DM,38.2589803757816

@@ -33,7 +33,7 @@ python batch_process_gex.py
 # Input:  gex_data_unzipped/*.txt
 # Output: processed_gex_data/*.h5ad (processes files in batches, calls process_gex_data.py)
 
-# 3. Quality control assessment
+# 3. Quality control assessment (Optional)
 python check_data_quality.py
 # Input:  processed_gex_data/*.h5ad
 # Output: quality_reports/ (QC statistics and visualizations)
@@ -60,9 +60,13 @@ Default quality control thresholds:
 
 ## Integration
 
-The complete workflow generates the following key files:
+The complete workflow processes data through the following stages:
+
+**Data Flow:**
+- **`gex_data_unzipped/*.txt`**: Raw scRNA-seq files (filtered for 120-patient cohort)
+- **`processed_gex_data/*.h5ad`**: Pseudo-bulk aggregated single-cell data (one .h5ad file per sample)
 - **`gex_divas_datablock.tsv`**: 120-patient gene expression matrix for internal processing
 - **`gex_sample_metadata.tsv`**: Sample metadata and ID mapping information
-- **`../processed_omics_120/sc_gex_120patients_aligned.csv`**: Final aligned matrix compatible with other omics datasets for DIVAS multi-omics integration analysis
+- **`../processed_omics_120/sc_gex_120patients_aligned.csv`**: Final aligned matrix compatible with other omics datasets (genes × 240 samples)
 
-The alignment step (Step 5) ensures sample order consistency across all omics modalities, enabling seamless multi-omics integration.
+The alignment step (Step 5) ensures sample order consistency across all omics modalities, enabling seamless multi-omics integration analysis.

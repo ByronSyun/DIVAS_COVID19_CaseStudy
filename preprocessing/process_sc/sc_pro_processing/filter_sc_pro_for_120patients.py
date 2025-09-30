@@ -22,7 +22,7 @@ def main():
     print(f"Samples in mapping table: {len(id_mapping)}")
     
     # Read core samples data (120 dual time-point patients)
-    core_samples_file = os.path.join(repo_root, "sample_distribution", "core_samples_10X_metabolomics_proteomics_20250704_173841.csv")
+    core_samples_file = os.path.join(repo_root, "sample_distribution", "patients_meta.csv")
     print(f"Reading core samples data: {core_samples_file}")
     core_samples = pd.read_csv(core_samples_file)
     

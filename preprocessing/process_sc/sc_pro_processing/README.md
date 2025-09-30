@@ -29,14 +29,6 @@ python filter_sc_pro_for_120patients.py
 # Output: ../processed_omics_120/sc_pro_120patients.csv
 ```
 
-## Key Parameters
-
-Default processing settings:
-- **Aggregation method**: Mean expression across cells (pseudo-bulk)
-- **Normalization**: Centered Log Ratio (CLR) transformation (applied during pseudo-bulk creation)
-- **Sample filtering**: Dual-timepoint patients only (T1 + T2)
-- **Expected output**: ~25 proteins × 240 samples (120 patients × 2 timepoints)
-
 ## Integration
 
-The final output (`sc_pro_120patients.csv`) is compatible with other omics datasets for DIVAS multi-omics integration analysis. The CLR normalization ensures proper handling of compositional protein expression data.
+The final output `sc_pro_120patients.csv` (~25 proteins × 240 samples (120 patients × 2 timepoints)) is compatible with other omics datasets for DIVAS multi-omics integration analysis. The Centered Log Ratio (CLR) normalization ensures proper handling of compositional protein expression data.

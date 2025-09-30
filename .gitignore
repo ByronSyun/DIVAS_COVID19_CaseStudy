@@ -8,9 +8,8 @@ preprocessing/processed_omics_all/*.tsv
 *.txt
 
 # But include important small configuration/metadata files
-!sample_distribution/*.csv
-!sample_distribution/*.tsv
-!preprocessing/process_bulk/sample_ids.tsv
+!preprocessing/sample_distribution/sample_ids.tsv
+!preprocessing/sample_distribution/patients_meta.csv
 !preprocessing/process_sc/sc_gex_processing/gex_sample_metadata.tsv
 !scRNA_celltyist_analysis/T1T2_preparation/balanced_sample_selection_114.csv
 !scRNA_celltyist_analysis/T1T2_preparation/balanced_sample_selection_120.csv

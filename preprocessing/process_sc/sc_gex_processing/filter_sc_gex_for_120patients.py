@@ -20,7 +20,7 @@ def get_target_standard_ids():
     BASE_DIR = os.path.join(repo_root, "preprocessing")
     
     # Read core samples and ID mapping table
-    core_samples_file = os.path.join(repo_root, "sample_distribution", "core_samples_10X_metabolomics_proteomics_20250704_173841.csv")
+    core_samples_file = os.path.join(repo_root, "sample_distribution", "patients_meta.csv")
     mapping_file = os.path.join(BASE_DIR, "sample_distribution", "sample_ids.tsv")
     
     core_samples = pd.read_csv(core_samples_file)
