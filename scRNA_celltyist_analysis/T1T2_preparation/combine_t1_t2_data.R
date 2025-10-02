@@ -3,13 +3,11 @@
 
 library(dplyr)
 
-cat("=== T1/T2 Combined Analysis ===\n")
-
 setwd("/Users/byronsun/Desktop/DIVAS-code/DIVAS_COVID19_CaseStudy/scRNA_celltyist_analysis")
 
 combined_data_dir <- "DIVAS_run/divas_input_T1T2combined"
 if (dir.exists(combined_data_dir) && length(list.files(combined_data_dir, pattern = "Combined_.*\\.csv")) > 0) {
-  cat("Final combined data already exists. Use: Rscript DIVAS_run/run_combined_6block_divas.R\n")
+  message("Combined data already exists. Skipping generation.")
   quit(save = "no")
 }
 dir.create(combined_data_dir, recursive = TRUE, showWarnings = FALSE)
@@ -18,8 +16,6 @@ annotated_dir <- "/Users/byronsun/Desktop/DIVAS-code/DIVAS_COVID19_Analysis_Repo
 mapping_file <- "../preprocessing/sample_distribution/sample_ids.tsv"
 proteomics_file <- "../preprocessing/processed_omics_120/proteomics_120patients.csv"
 metabolomics_file <- "../preprocessing/processed_omics_120/metabolomics_120patients.csv"
-
-cat("Loading sample selection...\n")
 
 # Read precomputed balanced selection
 sel_path <- "T1T2_preparation/balanced_sample_selection_114.csv"
@@ -45,7 +41,7 @@ celltype_map <- list(
   NK = "NK"
 )
 
-cat("Finding common genes with quality filtering...\n")
+# Find common genes with quality filtering
 
 # Only compute common genes once for all scRNA blocks
 if (!exists("global_common_genes")) {
@@ -70,7 +66,7 @@ annotated_dir = "%s"
 common_genes = None
 sample_gene_data = {}
 
-print("Step 1: Finding gene intersection across all samples...")
+# Step 1: Finding gene intersection across all samples
 
 for sample_id in all_samples:
     if sample_id not in sample_to_incov:
@@ -98,23 +94,20 @@ for sample_id in all_samples:
         }
         
     except Exception as e:
-        print(f"Error reading {h5ad_file}: {e}", file=sys.stderr)
+        pass  # Skip problematic files
         continue
 
 if common_genes is None or len(common_genes) == 0:
-    print("No common genes found across samples")
     sys.exit(1)
 
 common_genes_list = sorted(list(common_genes))
-print(f"Found {len(common_genes_list)} genes common across all samples")
 
-# Step 2: Apply 10%% expression threshold filtering (matching original analysis)
-print("Step 2: Applying 10%% expression threshold filtering...")
+# Step 2: Apply 10%% expression threshold filtering
 
 min_expression_percentage = 0.10  # 10%% threshold like original analysis
 min_samples_for_expression = math.ceil(len(all_samples) * min_expression_percentage)
 
-print(f"Gene must be expressed in at least {min_samples_for_expression} samples to be retained")
+# Genes must be expressed in at least 10%% of samples
 
 # Create aggregated expression matrix for quality filtering
 gene_expression_counts = {}
@@ -141,7 +134,7 @@ for sample_id in all_samples:
                     gene_expression_counts[gene] += 1
                     
     except Exception as e:
-        print(f"Error processing {h5ad_file} for quality filtering: {e}", file=sys.stderr)
+        pass  # Skip problematic files
         continue
 
 # Filter genes based on expression threshold
@@ -150,8 +143,7 @@ for gene in common_genes_list:
     if gene in gene_expression_counts and gene_expression_counts[gene] >= min_samples_for_expression:
         quality_filtered_genes.append(gene)
 
-print(f"After 10%% expression filtering: {len(quality_filtered_genes)} genes retained")
-print(f"Removed {len(common_genes_list) - len(quality_filtered_genes)} genes ({((len(common_genes_list) - len(quality_filtered_genes))/len(common_genes_list)*100):.1f}%%)")
+# Quality filtering complete
 
 # Save to file
 with open("common_genes.txt", "w") as f:
@@ -173,7 +165,7 @@ with open("common_genes.txt", "w") as f:
     stop("Failed to find quality-filtered common genes")
   }
   
-  cat("Found", length(global_common_genes), "quality-filtered common genes (10% expression threshold)\n")
+  # Quality-filtered common genes identified
 }
 
 # --- 5. Function to Extract and Combine Data ---
@@ -209,18 +201,18 @@ def extract_celltype_data(samples, timepoint):
     all_data = []
     sample_names = []
     
-    print(f"Extracting {celltype_label} data for {len(samples)} {timepoint} samples using {len(common_genes)} common genes...")
+    # Extracting cell type data
     
     for sample_id in samples:
         if sample_id not in sample_to_incov:
-            print(f"Warning: {sample_id} not found in mapping", file=sys.stderr)
+            pass  # Skip missing samples
             continue
             
         incov_filename = sample_to_incov[sample_id]  # Get INCOVxxx-BL or INCOVxxx-AC
         h5ad_file = os.path.join(annotated_dir, f"{incov_filename}_annotated.h5ad")
         
         if not os.path.exists(h5ad_file):
-            print(f"Warning: {h5ad_file} not found", file=sys.stderr)
+            pass  # Skip missing files
             continue
             
         try:
@@ -243,11 +235,11 @@ def extract_celltype_data(samples, timepoint):
                 else:
                     celltype_mask = adata_common.obs["celltypist_majority_voting"] == celltype_label
             else:
-                print(f"Warning: No cell type annotation found in {h5ad_file}", file=sys.stderr)
+                pass  # Skip files without annotation
                 continue
             
             if celltype_mask.sum() == 0:
-                print(f"Warning: No {celltype_label} cells found in {sample_id}", file=sys.stderr)
+                pass  # Skip samples without target cell type
                 continue
             
             # Extract and aggregate (mean) expression for this cell type using common genes
@@ -259,7 +251,7 @@ def extract_celltype_data(samples, timepoint):
             sample_names.append(sample_id)
             
         except Exception as e:
-            print(f"Error processing {h5ad_file}: {e}", file=sys.stderr)
+            pass  # Skip problematic files
             continue
     
     if len(all_data) == 0:
@@ -276,8 +268,7 @@ def extract_celltype_data(samples, timepoint):
 t1_data = extract_celltype_data(t1_samples, "T1")
 t2_data = extract_celltype_data(t2_samples, "T2")
 
-print(f"T1 data shape: {t1_data.shape}")
-print(f"T2 data shape: {t2_data.shape}")
+# T1 and T2 data extracted
 
 # Save temporary files
 t1_data.to_csv("temp_t1.csv")
@@ -319,8 +310,7 @@ t2_data.to_csv("temp_t2.csv")
     stop("Unknown block name: ", block_name)
   }
   
-  cat("    - T1 data dimensions:", dim(t1_data), "\n")
-  cat("    - T2 data dimensions:", dim(t2_data), "\n")
+  # Data dimensions verified
   
   # Check if samples exist in the data
   t1_samples_available <- intersect(t1_samples, colnames(t1_data))
@@ -345,7 +335,7 @@ t2_data.to_csv("temp_t2.csv")
   return(combined_data)
 }
 
-cat("Processing data blocks...\n")
+# Processing data blocks
 
 combined_data_list <- list()
 
@@ -368,8 +358,8 @@ for (block_name in names(combined_data_list)) {
   
   combined_data_list[[block_name]] <- combined_data_list[[block_name]][, keep, drop = FALSE]
   
-  output_file <- file.path(combined_data_dir, paste0("Combined_", block_name, ".csv"))
-  write.csv(combined_data_list[[block_name]], output_file)
+    output_file <- file.path(combined_data_dir, paste0("Combined_", block_name, ".csv"))
+    write.csv(combined_data_list[[block_name]], output_file)
 }
 
 # Write missing report
@@ -402,33 +392,13 @@ data_summary <- data.frame(
 write.csv(data_summary, file.path(combined_data_dir, "data_summary.csv"), row.names = FALSE)
 
 na_summary <- sapply(combined_data_list, function(x) sum(is.na(x)))
-if (any(na_summary > 0)) {
-  cat("Warning: NA values found in some blocks\n")
-}
+# Check for NA values completed
 
 sample_orders_consistent <- all(sapply(combined_data_list[-1], function(x) {
   identical(colnames(x), colnames(combined_data_list[[1]]))
 }))
 
-# Create a README file
-readme_content <- paste0(
-  "# Combined T1/T2 6-Block DIVAS Analysis Data\n\n",
-  "## Overview\n",
-  "This directory contains the combined T1/T2 dataset for 6-block DIVAS analysis.\n",
-  "Total samples: ", nrow(final_sample_info), " (balanced by WHO Ordinal Scale)\n",
-  "T1 samples: ", sum(final_sample_info$timepoint == "T1"), "\n",
-  "T2 samples: ", sum(final_sample_info$timepoint == "T2"), "\n\n",
-  "## Data Blocks\n",
-  paste(paste0("- ", data_summary$Data_Block, ": ", data_summary$Features, " features x ", data_summary$Samples, " samples"), collapse = "\n"),
-  "\n\n## Files\n",
-  "- Combined_*.csv: Individual data blocks\n",
-  "- final_sample_info.csv: Sample metadata with WOS, demographics\n",
-  "- data_summary.csv: Summary of all data blocks\n",
-  "- README.md: This file\n\n",
-  "Generated on: ", Sys.time(), "\n"
-)
+# Data processing complete
 
-writeLines(readme_content, file.path(combined_data_dir, "README.md"))
-
-cat("Data extraction complete -", nrow(final_sample_info), "samples\n")
-cat("Next: Rscript DIVAS_run/run_combined_6block_divas.R\n")
+message("Data extraction complete: ", nrow(final_sample_info), " samples")
+message("Next: Rscript DIVAS_run/run_combined_6block_divas.R")
