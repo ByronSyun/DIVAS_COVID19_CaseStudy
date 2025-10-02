@@ -92,24 +92,6 @@ Rscript combine_t1_t2_data.R
 
 *Perfect temporal balance: Each data block contains exactly 57 T1 (baseline) and 57 T2 (follow-up) samples for robust longitudinal analysis.*
 
-## Key Features
-
-### 🔬 **Cell Type Analysis**
-- **Automated Annotation**: CellTypist PBMC model with majority voting
-- **Quality Control**: Sample coverage and cell type distribution checks
-- **Broad Categories**: Aggregates specific subtypes for robust analysis
-
-### 📊 **6-block DIVAS Integration**
-- **scRNA-seq Blocks**: 4 cell type-specific expression profiles (8634 genes each)
-- **Bulk Omics Blocks**: Proteomics (481 features) + Metabolomics (763 features)
-- **Sample Design**: 114 samples from balanced clinical selection
-- **Gene Coverage**: 8634 genes after common gene filtering and quality control
-
-### ⚡ **Streamlined Workflow**
-- **Direct Processing**: Reads directly from `.h5ad` files
-- **Pre-computed Selection**: Uses optimized 114-sample configuration
-- **Ready for DIVAS**: Output files formatted for immediate DIVAS analysis
-
 ## Data Requirements
 
 ### Prerequisites
@@ -142,10 +124,6 @@ The final 8634 genes represent:
 - **Expression threshold**: ≥10% expression within each timepoint
 - **T1/T2 intersection**: Genes meeting criteria in both timepoints
 - **Quality control**: Removes low-quality and sparse features
-
-## Metadata Files
-- **`final_sample_info.csv`**: Sample metadata with clinical information
-- **`data_summary.csv`**: Data block specifications and dimensions
 
 ### Memory Requirements
 - **CellTypist annotation**: 8-16GB RAM recommended
