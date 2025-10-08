@@ -14,6 +14,9 @@ preprocessing/processed_omics_all/*.tsv
 !scRNA_celltyist_analysis/T1T2_preparation/balanced_sample_selection_114.csv
 !scRNA_celltyist_analysis/T1T2_preparation/balanced_sample_selection_120.csv
 
+# Large metadata file - too big for git (56MB), available on Zenodo
+# scRNA_celltyist_analysis/celltype_annotation/all_cells_metadata_complete.csv
+
 # Include README files
 !README.md
 !*/README.md

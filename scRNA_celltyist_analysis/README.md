@@ -130,6 +130,35 @@ The final 8634 genes represent:
 - **Data combination**: 16-32GB RAM for large `.h5ad` processing
 - **Storage**: ~50GB for intermediate files (not in git)
 
+## Optional: Extract Complete Cell Metadata
+
+### Pre-computed File (Recommended)
+
+Download the pre-computed cell metadata file from Zenodo:
+- **File**: `all_cells_metadata_complete.csv` (56 MB)
+- **Location**: Place in `celltype_annotation/` directory
+- **Content**: 480,984 cells from 240 samples
+
+The file contains:
+- **cell_id**: Unique cell barcode
+- **patient_id**: Patient identifier (e.g., INCOV001)
+- **sample_name**: Sample with timepoint (e.g., INCOV001-BL)
+- **timepoint**: T1 (BL) or T2 (AC)
+- **majority_voting**: Final cell type annotation (CellTypist with majority voting)
+- **predicted_labels**: Initial CellTypist prediction
+- **QC metrics**: n_genes, total_counts, pct_counts_mt, etc.
+
+### Generate from Scratch (Alternative)
+
+If you have the annotated `.h5ad` files:
+
+```bash
+cd celltype_annotation
+python extract_all_cell_metadata.py
+```
+
+**Note**: Requires annotated_data_majority_voting/ directory with all 240 `.h5ad` files (~50GB).
+
 ## Next Steps
 
 After completing this workflow:
