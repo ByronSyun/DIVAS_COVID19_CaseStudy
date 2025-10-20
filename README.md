@@ -2,11 +2,7 @@
 
 📊 **[View the Interactive Case Study Website](https://byronsyun.github.io/DIVAS_COVID19_CaseStudy/)**
 
-This repository contains a complete reproducible case study demonstrating the application of DIVAS (Data Integration via Analysis of Subspaces) to COVID-19 multi-omics data.
-
-## 🌐 Interactive Tutorial
-
-The **[interactive HTML tutorial](https://byronsyun.github.io/DIVAS_COVID19_CaseStudy/)** provides a step-by-step walkthrough of:
+The interactive tutorial provides a step-by-step walkthrough of:
 - Multi-omics data integration using DIVAS
 - Component visualization and interpretation
 - GO enrichment analysis
@@ -14,7 +10,11 @@ The **[interactive HTML tutorial](https://byronsyun.github.io/DIVAS_COVID19_Case
 
 For the complete analysis pipeline and code, see the sections below.
 
+---
+
 ## Overview
+
+This repository contains a complete reproducible case study demonstrating the application of DIVAS (Data Integration via Analysis of Subspaces) to COVID-19 multi-omics data.
 
 DIVAS is a novel statistical method for integrating multiple high-dimensional datasets. This case study applies DIVAS to COVID-19 patient data including:
 
