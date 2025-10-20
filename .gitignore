@@ -84,6 +84,8 @@ preprocessing/processed_omics_all/
 !multi_omics_integration/DIVAS_Results/
 !scRNA_celltyist_analysis/DIVAS_run/divas_results/
 *.rds
+# Exception: include metadata.rds (small, essential for case study)
+!scRNA_celltyist_analysis/DIVAS_run/DIVAS_Results/metadata.rds
 
 # Note: DIVAS_InputbyTime directory has been removed (workflow simplified)
 
