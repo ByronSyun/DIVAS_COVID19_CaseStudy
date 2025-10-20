@@ -2,13 +2,13 @@
 
 📊 **[View the Interactive Case Study Website](https://byronsyun.github.io/DIVAS_COVID19_CaseStudy/)**
 
-The interactive tutorial provides a step-by-step walkthrough of:
+The interactive tutorial demonstrates DIVAS analysis using pre-computed results:
 - Multi-omics data integration using DIVAS
 - Component visualization and interpretation
 - GO enrichment analysis
 - Multi-omics correlation networks (Circos plots)
 
-For the complete analysis pipeline and code, see the sections below.
+> **Note**: The tutorial focuses on DIVAS analysis and interpretation. For the complete data preprocessing pipeline (raw data download, quality control, cell type annotation, etc.), see the detailed instructions in the sections below.
 
 ---
 
