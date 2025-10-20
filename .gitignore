@@ -90,3 +90,7 @@ preprocessing/processed_omics_all/
 # Include important intermediate results (44MB total)
 !scRNA_celltyist_analysis/DIVAS_run/divas_input_T1T2combined/
 !scRNA_celltyist_analysis/DIVAS_run/divas_input_T1T2combined/*.csv
+
+# LaTeX intermediate files
+*.tex
+*.log
