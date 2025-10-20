@@ -229,7 +229,7 @@ matrixPlot(df_sc, var_names = "CD8_T_combined+metabolomics-5", colBy = metaDat$`
 
 To identify multiomic features driving the variation of a given component, we assess the modality-specific loadings. For example, the DIVAS component that was most strongly associated with COVID severity, CD4+CD14+NK+Pro+Metab_1 was a five-way component, therefore having five modality-specific loading vectors. Take CD4 GEX modality as an example:
 
-```{r get-top-features-cd4, eval=FALSE}
+```{r get-top-features-cd4}
 # Extract top features from the #1 ranked component (most correlated with severity)
 # This is a 5-way component: CD4_T_combined+CD14_Monocyte+NK+proteomics+metabolomics-1
 comp_name <- "CD4_T_combined+CD14_Monocyte+NK+proteomics+metabolomics-1"
@@ -246,7 +246,7 @@ topFeatures_CD4 <- getTopFeatures(
 
 We've selected featuers with largest (absolute value) positive and negative loadings. Next we input these two gene lists to do gene ontology (GO) enrichment analyses. The GO terms associated with higher and lower severity depicted two contrasting immune landscapes. The GO terms associated with higher severity were mostly about T cell activation and differentiation, suggesting hyperactive, dysregulated T cell response; the GO terms associated with lower weverity were marked by more diverse biological processes, including both T cell differentiation and stress response pathways, which less emphasis on excessive T cell activation.
 
-```{r go-enrichment-cd4, eval=FALSE, fig.asp=1.8}
+```{r go-enrichment-cd4, fig.asp=1.8}
 # GO Enrichment for CD4 T cell features
 go_neg_CD4 <- enrichGO(
   gene = topFeatures_CD4$top_negative,
@@ -267,7 +267,7 @@ dotplot(go_neg_CD4, showCategory = 20, title = "CD4 T cells - Lower Severity")
 ```
 Next we look at CD14 monocyte GEX loadings for the same 5-way component. Associated with lower COVID severity were GO terms related to standard antigen presenting functions. However, GO terms assocaited with higher COVID severity suggested a drastically different monocyte phenotype -- (I want to use en dash here, it's not AI!) less emphasis on antigen presenting but more on hypermetabolic and inflammatory cell states, potentially indicating high metabolic stress in a pro-inflammatory environment.
 
-```{r go-enrichment-cd14, eval=FALSE, fig.asp=1.8}
+```{r go-enrichment-cd14, fig.asp=1.8}
 # Extract CD14 Monocyte features from the same component
 topFeatures_CD14 <- getTopFeatures(
   divasRes, 
@@ -300,7 +300,7 @@ dotplot(go_neg_CD14, showCategory = 20, title = "CD14 Monocytes - Lower Severity
 
 What about proteomics? Note that the previous two modalities we reviwed, namely CD4 and CD14, were cell-type-specific transcriptomics. Next let's look at a different omics type. However we can no longer use `clusterProfiler::enrichGO` for GO enrichment analysis, since the protein names were not standard gene names. However we can still feed these two protein lists into large language models to query their biological meanings.
 
-```{r proteomics-features, eval=FALSE}
+```{r proteomics-features}
 # Extract proteomics features from the same component
 topFeatures_pro <- getTopFeatures(
   divasRes, 
@@ -332,7 +332,7 @@ We can do similar analysis using loadings for other modalities, which is omitted
 
 To visualize the correlations between top features across different modalities, we can use a Circos plot. This shows how genes, proteins, and metabolites from the top-ranked component are correlated with each other.
 
-```{r circos-prep, eval=FALSE}
+```{r circos-prep}
 # Load original data matrices (needed for correlation calculation)
 input_dir <- "scRNA_celltyist_analysis/DIVAS_run/divas_input_T1T2combined"
 data_blocks_circos <- c("CD4_T_combined", "CD14_Monocyte", "NK", "proteomics", "metabolomics")
@@ -435,7 +435,7 @@ rownames(protBlock) <- newProtNames
 data_list_circos$proteomics <- protBlock
 ```
 
-```{r circos-plot, eval=FALSE, fig.width=8, fig.height=8}
+```{r circos-plot, fig.width=8, fig.height=8}
 # Generate Circos plot using vizOmics
 # This shows correlations between top features across modalities
 # Red links = positive correlations, Blue links = negative correlations
