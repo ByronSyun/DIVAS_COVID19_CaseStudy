@@ -133,12 +133,20 @@ lapply(data_list, dim)
 
 ### Loading Pre-computed Results
 
-For this tutorial, we use pre-computed DIVAS results. **Users can download the pre-computed results from Zenodo** (link will be provided upon publication) and place them in the appropriate directory.
+For this tutorial, we use pre-computed DIVAS results. **Download the required data from Zenodo** and place them in the appropriate directory.
+
+**Zenodo Dataset:** [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.17430294.svg)](https://doi.org/10.5281/zenodo.17430294)
+
+**Required files:**
+1. `divas_results_combined_6block_renamed.rds` (419 MB) - Download from [Zenodo](https://zenodo.org/records/17430294)
+   - Place in: `scRNA_celltyist_analysis/DIVAS_run/DIVAS_Results/`
+2. `metadata.rds` (4.1 KB) - Already included in GitHub repo ✓
 
 ```{r load-results}
 # Load pre-computed DIVAS results and clinical metadata
-# Download from: [Zenodo link to be added]
-# Place both files in: scRNA_celltyist_analysis/DIVAS_run/DIVAS_Results/
+# Download divas_results_combined_6block_renamed.rds from:
+# https://zenodo.org/records/17430294
+# Place in: scRNA_celltyist_analysis/DIVAS_run/DIVAS_Results/
 
 divasRes <- readRDS("scRNA_celltyist_analysis/DIVAS_run/DIVAS_Results/divas_results_combined_6block_renamed.rds")
 metaDat <- readRDS("scRNA_celltyist_analysis/DIVAS_run/DIVAS_Results/metadata.rds")

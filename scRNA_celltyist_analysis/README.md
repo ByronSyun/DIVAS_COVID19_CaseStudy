@@ -135,9 +135,19 @@ The final 8634 genes represent:
 ### Pre-computed File (Recommended)
 
 Download the pre-computed cell metadata file from Zenodo:
-- **File**: `all_cells_metadata_complete.csv` (56 MB)
+
+**Zenodo Dataset:** [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.17430294.svg)](https://doi.org/10.5281/zenodo.17430294)
+
+- **File**: `all_cells_metadata_complete.csv` (57.8 MB)
+- **Download**: [https://zenodo.org/records/17430294](https://zenodo.org/records/17430294)
 - **Location**: Place in `celltype_annotation/` directory
 - **Content**: 480,984 cells from 240 samples
+
+```bash
+# Download from Zenodo and place the file:
+cd celltype_annotation
+# Place all_cells_metadata_complete.csv here
+```
 
 The file contains:
 - **cell_id**: Unique cell barcode

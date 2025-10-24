@@ -12,6 +12,45 @@ The interactive tutorial demonstrates DIVAS analysis using pre-computed results:
 
 ---
 
+## 📦 Data Availability
+
+Due to file size limitations, some essential data files are hosted on Zenodo:
+
+**Download from Zenodo:** [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.17430294.svg)](https://doi.org/10.5281/zenodo.17430294)
+
+### Required Files for Running the Tutorial
+
+Download these files from [Zenodo](https://zenodo.org/records/17430294) and place them in the specified directories:
+
+| File | Size | Destination | Required For |
+|------|------|-------------|--------------|
+| `divas_results_combined_6block_renamed.rds` | 419 MB | `scRNA_celltyist_analysis/DIVAS_run/DIVAS_Results/` | Interactive tutorial, case study analysis |
+| `Combined_*.csv` (6 files) | ~44 MB | Already in GitHub repo ✓ | DIVAS input data |
+| `metadata.rds` | 4.1 KB | Already in GitHub repo ✓ | Clinical metadata |
+| `all_cells_metadata_complete.csv` | 57.8 MB | `scRNA_celltyist_analysis/celltype_annotation/` | Optional: cell-level annotations |
+
+### Quick Setup
+
+```bash
+# 1. Clone this repository
+git clone https://github.com/ByronSyun/DIVAS_COVID19_CaseStudy.git
+cd DIVAS_COVID19_CaseStudy
+
+# 2. Download DIVAS results from Zenodo (required)
+# Visit: https://zenodo.org/records/17430294
+# Download: divas_results_combined_6block_renamed.rds
+# Place in: scRNA_celltyist_analysis/DIVAS_run/DIVAS_Results/
+
+# 3. (Optional) Download cell metadata
+# Download: all_cells_metadata_complete.csv
+# Place in: scRNA_celltyist_analysis/celltype_annotation/
+
+# 4. Open and run the Rmarkdown tutorial
+# File: CaseCOVID_Analysis.Rmd
+```
+
+---
+
 ## Overview
 
 This repository contains a complete reproducible case study demonstrating the application of DIVAS (Data Integration via Analysis of Subspaces) to COVID-19 multi-omics data.
