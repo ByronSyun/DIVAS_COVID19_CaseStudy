@@ -182,9 +182,9 @@ colScal <- c(
 
 Visualising the first 8 DIVAS components, we can see that some components were highly correlated with disease severity, such as the 6-way component; others are not. However there are simply too many components to visually examine one by one.
 
-```{r fig.asp=1}
-matrixPlot(df_sc, comp_idx = 1:4, colBy = metaDat$`Who Ordinal Scale`, pointSize = 2, fsize = 12, manualCol = colScal)
-matrixPlot(df_sc, comp_idx = 5:8, colBy = metaDat$`Who Ordinal Scale`, pointSize = 2, fsize = 12, manualCol = colScal)
+```{r fig.asp=1, fig.width=10, fig.height=10}
+matrixPlot(df_sc, comp_idx = 1:4, colBy = metaDat$`Who Ordinal Scale`, pointSize = 2, fsize = 8, manualCol = colScal)
+matrixPlot(df_sc, comp_idx = 5:8, colBy = metaDat$`Who Ordinal Scale`, pointSize = 2, fsize = 8, manualCol = colScal)
 ```
 
 To select components most highly correlated with disease severity, we calculated the Spearman correlation coefficient between individual scores and the disease severity score.
@@ -209,14 +209,14 @@ impSc[names(impSc_sort)][1:5]
 
 Visualise these top-ranking components.
 
-```{r fig.asp=1, fig.width=10}
-matrixPlot(df_sc, var_names = names(impSc_sort)[1:5], colBy = metaDat$`Who Ordinal Scale`, pointSize = 2, manualCol = colScal, fsize = 8)
+```{r fig.asp=1, fig.width=12, fig.height=12}
+matrixPlot(df_sc, var_names = names(impSc_sort)[1:5], colBy = metaDat$`Who Ordinal Scale`, pointSize = 2, manualCol = colScal, fsize = 6)
 ```
 
 Due to two outlying samples, the CD8-Metab_5 component (5th component shared by CD8 GEX and metabolomics) didn't seem to be differentiating patients with high and low severity. The differentiation can be more clearly seen if we omit those two outliers in visualiation:
 
-```{r}
-matrixPlot(df_sc, var_names = "CD8+metab-5", colBy = metaDat$`Who Ordinal Scale`, pointSize = 2, manualCol = colScal, fsize = 8) +
+```{r fig.width=6, fig.height=6}
+matrixPlot(df_sc, var_names = "CD8+metab-5", colBy = metaDat$`Who Ordinal Scale`, pointSize = 2, manualCol = colScal, fsize = 10) +
   xlim(-0.1, 0.1)
 ```
 
