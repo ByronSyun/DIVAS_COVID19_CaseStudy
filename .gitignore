@@ -96,3 +96,6 @@ preprocessing/processed_omics_all/
 # LaTeX intermediate files
 *.tex
 *.log
+
+# HTML: keep index.html for GitHub Pages, ignore the Rmd-generated html
+CaseCOVID_Analysis.html
