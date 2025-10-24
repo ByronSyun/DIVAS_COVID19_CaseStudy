@@ -140,7 +140,7 @@ For this tutorial, we use pre-computed DIVAS results. **Users can download the p
 # Download from: [Zenodo link to be added]
 # Place both files in: scRNA_celltyist_analysis/DIVAS_run/DIVAS_Results/
 
-divasRes <- readRDS("scRNA_celltyist_analysis/DIVAS_run/DIVAS_Results/divas_results_combined_6block.rds")
+divasRes <- readRDS("scRNA_celltyist_analysis/DIVAS_run/DIVAS_Results/divas_results_combined_6block_renamed.rds")
 metaDat <- readRDS("scRNA_celltyist_analysis/DIVAS_run/DIVAS_Results/metadata.rds")
 ```
 
@@ -216,7 +216,7 @@ matrixPlot(df_sc, var_names = names(impSc_sort)[1:5], colBy = metaDat$`Who Ordin
 Due to two outlying samples, the CD8-Metab_5 component (5th component shared by CD8 GEX and metabolomics) didn't seem to be differentiating patients with high and low severity. The differentiation can be more clearly seen if we omit those two outliers in visualiation:
 
 ```{r}
-matrixPlot(df_sc, var_names = "CD8_T_combined+metabolomics-5", colBy = metaDat$`Who Ordinal Scale`, pointSize = 2, manualCol = colScal, fsize = 8) +
+matrixPlot(df_sc, var_names = "CD8+metab-5", colBy = metaDat$`Who Ordinal Scale`, pointSize = 2, manualCol = colScal, fsize = 8) +
   xlim(-0.1, 0.1)
 ```
 
@@ -231,14 +231,14 @@ To identify multiomic features driving the variation of a given component, we as
 
 ```{r get-top-features-cd4}
 # Extract top features from the #1 ranked component (most correlated with severity)
-# This is a 5-way component: CD4_T_combined+CD14_Monocyte+NK+proteomics+metabolomics-1
-comp_name <- "CD4_T_combined+CD14_Monocyte+NK+proteomics+metabolomics-1"
+# This is a 5-way component: CD4+CD14+NK+pro+metab-1
+comp_name <- "CD4+CD14+NK+pro+metab-1"
 
 # Extract CD4 T cell gene expression features
 topFeatures_CD4 <- getTopFeatures(
   divasRes, 
   compName = comp_name,
-  modName = "CD4_T_combined", 
+  modName = "CD4", 
   n_top_pos = 100, 
   n_top_neg = 100
 )
@@ -272,7 +272,7 @@ Next we look at CD14 monocyte GEX loadings for the same 5-way component. Associa
 topFeatures_CD14 <- getTopFeatures(
   divasRes, 
   compName = comp_name,
-  modName = "CD14_Monocyte", 
+  modName = "CD14", 
   n_top_pos = 100, 
   n_top_neg = 100
 )
@@ -305,7 +305,7 @@ What about proteomics? Note that the previous two modalities we reviwed, namely 
 topFeatures_pro <- getTopFeatures(
   divasRes, 
   compName = comp_name,
-  modName = "proteomics", 
+  modName = "pro", 
   n_top_pos = 100, 
   n_top_neg = 100
 )
@@ -335,19 +335,22 @@ To visualize the correlations between top features across different modalities, 
 ```{r circos-prep}
 # Load original data matrices (needed for correlation calculation)
 input_dir <- "scRNA_celltyist_analysis/DIVAS_run/divas_input_T1T2combined"
-data_blocks_circos <- c("CD4_T_combined", "CD14_Monocyte", "NK", "proteomics", "metabolomics")
+data_blocks_files <- c("CD4_T_combined", "CD14_Monocyte", "NK", "proteomics", "metabolomics")
 
-data_list_circos <- lapply(data_blocks_circos, function(block_name) {
+data_list_circos <- lapply(data_blocks_files, function(block_name) {
   file_path <- file.path(input_dir, paste0("Combined_", block_name, ".csv"))
   read.csv(file_path, row.names = 1, check.names = FALSE)
 })
-names(data_list_circos) <- data_blocks_circos
+
+# Use short names for DIVAS (matching renamed results)
+modNames <- c("CD4", "CD14", "NK", "pro", "metab")
+names(data_list_circos) <- modNames
 
 # Extract top 50 features from each modality for the top component
-comp_name <- "CD4_T_combined+CD14_Monocyte+NK+proteomics+metabolomics-1"
+comp_name <- "CD4+CD14+NK+pro+metab-1"
 
 feature_list_circos <- list()
-for (mod_name in data_blocks_circos) {
+for (mod_name in modNames) {
   top_features <- getTopFeatures(
     divasRes, 
     compName = comp_name,
@@ -413,7 +416,7 @@ protein_name_map <- c(
 )
 
 # Apply protein renaming to feature list
-feature_list_circos$proteomics <- sapply(feature_list_circos$proteomics, function(x) {
+feature_list_circos$pro <- sapply(feature_list_circos$pro, function(x) {
   if (x %in% names(protein_name_map)) {
     return(protein_name_map[x])
   } else {
@@ -422,7 +425,7 @@ feature_list_circos$proteomics <- sapply(feature_list_circos$proteomics, functio
 })
 
 # Apply protein renaming to data matrix row names
-protBlock <- data_list_circos$proteomics
+protBlock <- data_list_circos$pro
 protNames <- rownames(protBlock)
 newProtNames <- sapply(protNames, function(x) {
   if (x %in% names(protein_name_map)) {
@@ -432,7 +435,7 @@ newProtNames <- sapply(protNames, function(x) {
   }
 })
 rownames(protBlock) <- newProtNames
-data_list_circos$proteomics <- protBlock
+data_list_circos$pro <- protBlock
 ```
 
 ```{r circos-plot, fig.width=8, fig.height=8}
