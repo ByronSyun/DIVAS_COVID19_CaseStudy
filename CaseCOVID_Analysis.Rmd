@@ -9,6 +9,13 @@ output:
     toc_float: true
     code_folding: show
     theme: cosmo
+knit: (function(input, ...) {
+    rmarkdown::render(
+      input,
+      output_file = 'index.html',
+      envir = globalenv()
+    )
+  })
 ---
 
 ```{r setup, include=FALSE}
