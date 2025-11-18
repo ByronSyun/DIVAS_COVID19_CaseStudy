@@ -37,33 +37,6 @@ DIVAS is a novel statistical method for integrating multiple high-dimensional da
 - Bulk proteomics
 - Metabolomics
 
-## Repository Structure
-
-This repository is organized into 4 main analysis directories:
-
-```
-DIVAS_COVID19_CaseStudy/
-├── 📁 data_acquisition/             # Raw data download and organization
-│   ├── download_arrayexpress_data.sh   # Download scRNA-seq data
-│   ├── organize_arrayexpress_files.sh  # Organize downloaded files
-│   └── mendeley_data/                   # Clinical metadata (manual download)
-├── 📁 preprocessing/                 # Data preprocessing pipeline
-│   ├── process_bulk/                    # Bulk omics processing
-│   ├── process_sc/                      # Single-cell processing  
-│   ├── data_alignment/                  # Cross-omics alignment
-│   └── processed_omics_120/            # Final 120-patient datasets
-├── 📁 multi_omics_integration/      # 4-omics DIVAS analysis
-│   ├── run_divas_analysis.R            # Main integration script
-│   ├── Final_Inputs/                   # Pre-processed 4-omics data
-│   └── DIVAS_Results/                  # Integration results
-└── 📁 scRNA_celltyist_analysis/     # Cell type-specific analysis
-    ├── celltype_annotation/            # CellTypist annotation
-    ├── T1T2_preparation/              # 6-block data preparation
-    └── DIVAS_run/                     # 6-block DIVAS analysis
-```
-
-Each directory contains a comprehensive `README.md` with detailed instructions.
-
 ## Key Features
 
 - **Complete Workflow**: From raw data processing to final DIVAS analysis
@@ -178,15 +151,3 @@ Data integration via analysis of subspaces (DIVAS).
 ## License
 
 This project is licensed under the MIT License - see the LICENSE file for details.
-
-## Contact
-
-For questions about this case study, please contact:
-- Byron Sun: [contact information]
-- Issues: https://github.com/ByronSyun/DIVAS_COVID19_CaseStudy/issues
-
-## Acknowledgments
-
-- DIVAS development team
-- COVID-19 data contributors
-- CellTypist development team
