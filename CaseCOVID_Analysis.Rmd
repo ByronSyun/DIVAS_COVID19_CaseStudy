@@ -143,6 +143,19 @@ lapply(data_list, dim)
 # 
 # # Save results
 # saveRDS(divas_results, "divas_results_combined_6block.rds")
+# 
+# # Generate diagnostic plots
+# pdf("figs/divas_diagnostic_plots.pdf", width = 12, height = 8)
+# 
+# DJIVEAngleDiagnosticJP(
+#   datablock = data_list,
+#   dataname = names(data_list),
+#   outstruct = divas_results,
+#   randseed = 123,
+#   titlestr = "DIVAS: Combined T1/T2 6-Block Analysis"
+# )
+# 
+# dev.off()
 ```
 
 **Note**: The above code might take around 5 hours to run, due to the large number of modalities. This is because DIVAS does a comprehensive search among candidate components corresponding to all possible combinations of modalities. In our 6-modality case, this means evaluating 1 6-way, 6 5-way, 15 4-way, 20 3-way, 15 2-way, and 6 1-way combinations (= 63 total combinations).
