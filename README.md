@@ -150,4 +150,4 @@ Data integration via analysis of subspaces (DIVAS).
 
 ## License
 
-This project is licensed under the MIT License - see the LICENSE file for details.
+This project is licensed under the GNU Affero General Public License v3.0 (AGPL-3) - see the LICENSE file for details.
