@@ -65,7 +65,7 @@ cd DIVAS_COVID19_CaseStudy
 2. Install DIVAS package:
 ```r
 library(devtools)
-install_github("ByronSyun/DIVAS_Develop/pkg", ref = "main")
+install_github("ByronSyun/DIVAS/pkg", ref = "main")
 ```
 
 3. Install Python dependencies:
@@ -106,6 +106,8 @@ cd scRNA_celltyist_analysis
 ```
 
 > **Note**: Each directory contains a comprehensive `README.md` with detailed step-by-step instructions, troubleshooting guides, and expected outputs.
+
+> **Directory naming**: the cell type analysis directory is spelled `scRNA_celltyist_analysis`, without the "p" of "celltypist". Paths throughout this repository use that spelling; searching for `scRNA_celltypist_analysis` will not find it.
 
 ## Data Requirements for Full Preprocessing Pipeline
 

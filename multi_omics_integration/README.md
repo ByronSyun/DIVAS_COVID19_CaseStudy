@@ -24,7 +24,7 @@ The analysis uses preprocessed 120-patient datasets from `../preprocessing/proce
 ```r
 # Install DIVAS package
 library(devtools)
-install_github("ByronSyun/DIVAS_Develop/pkg", ref = "main", force = TRUE)
+install_github("ByronSyun/DIVAS/pkg", ref = "main", force = TRUE)
 ```
 
 ### Run Analysis

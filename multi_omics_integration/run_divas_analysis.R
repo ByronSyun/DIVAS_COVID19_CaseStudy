@@ -10,7 +10,7 @@ cat("Working directory:", getwd(), "\n")
 if (!requireNamespace("devtools", quietly = TRUE)) {
   install.packages("devtools")
 }
-devtools::install_github("ByronSyun/DIVAS_Develop/pkg", ref = "main", force = TRUE)
+devtools::install_github("ByronSyun/DIVAS/pkg", ref = "main", force = TRUE)
 
 
 # Load libraries
