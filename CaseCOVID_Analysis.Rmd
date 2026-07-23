@@ -29,7 +29,7 @@ In this case study, we applied DIVAS to multiomics data from a cohort of \~120 C
 ```{r load-packages}
 # Install GitHub packages
 # install.packages("devtools")
-# devtools::install_github("ByronSyun/DIVAS_Develop/pkg", ref = "main")
+# devtools::install_github("ByronSyun/DIVAS/pkg", ref = "main")
 # devtools::install_github("ByronSyun/vizOmics")
 
 # Load required packages
@@ -104,6 +104,10 @@ How to interpret these components? It is easier to find out using a real-world d
 
 Once the data has been converted into a list of data blocks with matched columns (representing common samples), running DIVAS is straightforward.
 
+**How to read the next two sections.** *Preparing Data Blocks* and *Running DIVAS Analysis* show the exact commands you would run on your own data, but they are **not executed when this page is rendered**, because a full six-block run takes around 5 hours. What this vignette actually runs is *Loading Pre-computed Results* further below, which reads a saved result object. Use the two sections below as a template for your own analysis, then pick the tutorial back up at *Loading Pre-computed Results*.
+
+**Why 5 hours?** DIVAS does a comprehensive search among candidate components corresponding to all possible combinations of modalities. In our 6-modality case this means evaluating 1 6-way, 6 5-way, 15 4-way, 20 3-way, 15 2-way and 6 1-way combinations (63 in total), which is also why runtime grows quickly with the number of modalities.
+
 ### Preparing Data Blocks
 
 ```{r prep-data, eval=FALSE}
@@ -158,9 +162,6 @@ lapply(data_list, dim)
 # dev.off()
 ```
 
-**Note**: The above code might take around 5 hours to run, due to the large number of modalities. This is because DIVAS does a comprehensive search among candidate components corresponding to all possible combinations of modalities. In our 6-modality case, this means evaluating 1 6-way, 6 5-way, 15 4-way, 20 3-way, 15 2-way, and 6 1-way combinations (= 63 total combinations).
-
-
 ### Loading Pre-computed Results
 
 For this tutorial, we use pre-computed DIVAS results. **Download the required data from Zenodo** and place them in the appropriate directory.
@@ -186,7 +187,7 @@ metaDat <- readRDS("scRNA_celltyist_analysis/DIVAS_run/DIVAS_Results/metadata.rd
 ```
 
 
-The first key output from DIVAS is the rank decomposition plot.
+The first key output from DIVAS is the rank decomposition plot. This plot is produced by `DIVASmain()` itself, as one of its diagnostic outputs: it is drawn when `iprint = TRUE` (the default) and is written to file when a directory is supplied via `figdir`. There is no separate plotting call, and it is not produced by the loadings commands used later in this vignette. It appears below as a saved image only because the `DIVASmain()` call above is not executed when this page is rendered.
 
 ```{r rank-plot, out.width="100%", echo=FALSE}
 knitr::include_graphics("figs/Rank.png")
@@ -522,6 +523,10 @@ The **vizOmics** package provides enhanced visualization tools including:
 
 ---
 
-**Note**: This analysis used pre-computed DIVAS results. For running DIVAS on new data, see the full workflow in the `scRNA_celltyist_analysis` directory.
+**Note**: This analysis used pre-computed DIVAS results.
+
+**To run DIVAS on your own data**, start from the [Toy Dataset vignette](https://byronsyun.github.io/DIVAS/articles/DIVAS_Toy_Dataset_Example.html) in the DIVAS package documentation. It walks through preparing a list of matched data matrices, running `DIVASmain()`, and interpreting the signal extraction stage, including the estimated noise level, initial and bootstrap-refined signal ranks, and perturbation angles.
+
+**To reproduce the preprocessing for this case study**, see the `scRNA_celltyist_analysis/` directory of this repository, which contains the CellTypist cell type annotation and the T1/T2 sample preparation specific to the COVID-19 dataset. Note the directory name is spelled `scRNA_celltyist_analysis` (without the "p" of "celltypist"); searching for `scRNA_celltypist_analysis` will not find it.
 
 
